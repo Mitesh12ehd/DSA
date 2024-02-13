@@ -15,7 +15,6 @@ class Node{
         this->next = NULL;
     }
     ~Node(){
-        //here we have to right constructor
         int value = this->data;
         cout << "Node with value = "<< value << " is deleted" <<endl;
     }
@@ -36,21 +35,6 @@ int findlength_Of_LinkedList(Node*& head){
     }
     return len;
 }
-
-//recursive Time = O(n) Space = O(n)
-// Node* reverseLL(Node*& prevNode,Node*& currNode){
-//     //base case
-//     if(currNode == NULL){
-//         //link list is reversed
-//         return prevNode;
-//     }
-
-//     Node* nextNode = currNode->next;
-//     currNode->next = prevNode;
-//     reverseLL(currNode,nextNode);
-// }
-
-//iterative Time = O(n) Space = O(1)
 Node* reverseLL(Node*& head){
     Node* prevNode = NULL;
     Node* currNode = head;
@@ -62,25 +46,61 @@ Node* reverseLL(Node*& head){
     }
     return prevNode;
 }
+
+//Time = O(n/2) = O(n) Space = O(1)
+bool isPalindrome(Node*& head){
+    if(head == NULL){
+        return true;
+    }
+    if(head->next == NULL){
+        return true;
+    }
+
+    //1.find middle
+    Node* slow = head;
+    Node* fast = head->next;
+    while(fast!= NULL){
+        fast = fast->next;
+        if(fast != NULL){
+            fast = fast->next;
+            slow = slow->next;
+        }
+    }
+
+    //2.reverse linked list after middle
+    Node* reverseHead = reverseLL(slow->next);
+    slow->next = reverseHead;
+
+    //3.start comparing both half
+    Node* temp1 = head;
+    Node* temp2 = reverseHead;
+    while(temp2 != NULL){
+        if(temp1->data != temp2->data){
+            return false;
+        }
+        temp1 = temp1->next;
+        temp2 = temp2->next;
+    }
+    return true;
+}
 int main(){
-    //create a list
     Node* head = new Node(10);
     Node* second = new Node(20);
     Node* third = new Node(30);
-    Node* fourth = new Node(40);
+    Node* fourth = new Node(30);
+    Node* fifth = new Node(20);
+    Node* sixth = new Node(10);
+    
     head->next = second;
     second->next = third;
     third->next = fourth;
+    fourth->next = fifth;
+    fifth->next = sixth;
 
-
-    Node* prevNode = NULL;
-    Node* currNode = head;
-    //recursive
-    // head = reverseLL(prevNode,currNode);
-    //iterative
-    // head = reverseLL(head);
+    cout << isPalindrome(head) << endl;
 
     cout<<"printing linked list" << endl;
     printLinkedList(head);
+
     return 0;
 }

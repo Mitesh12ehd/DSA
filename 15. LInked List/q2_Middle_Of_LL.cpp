@@ -15,7 +15,7 @@ class Node{
         this->next = NULL;
     }
     ~Node(){
-        //here we have to right constructor
+        //here we have to destructor
         int value = this->data;
         cout << "Node with value = "<< value << " is deleted" <<endl;
     }
@@ -37,50 +37,44 @@ int findlength_Of_LinkedList(Node*& head){
     return len;
 }
 
-//recursive Time = O(n) Space = O(n)
-// Node* reverseLL(Node*& prevNode,Node*& currNode){
-//     //base case
-//     if(currNode == NULL){
-//         //link list is reversed
-//         return prevNode;
-//     }
-
-//     Node* nextNode = currNode->next;
-//     currNode->next = prevNode;
-//     reverseLL(currNode,nextNode);
-// }
-
-//iterative Time = O(n) Space = O(1)
-Node* reverseLL(Node*& head){
-    Node* prevNode = NULL;
-    Node* currNode = head;
-    while(currNode != NULL){
-        Node* nextNode = currNode->next;
-        currNode->next = prevNode;
-        prevNode = currNode;//increament
-        currNode = nextNode;//increament
+//time = O(n/2) = O(n)  space = O(1)
+Node* getMiddle(Node*& head){
+    if(head == NULL){
+        cout << "linked list empty";
+        return head;
     }
-    return prevNode;
+    if(head->next == NULL){
+        return head;
+    }
+
+    Node* slow = head;
+    Node* fast = head;
+    while(fast!= NULL){
+        fast = fast->next;
+        if(fast != NULL){
+            fast = fast->next;
+            slow = slow->next;
+        }
+    }
+    return slow;
 }
+
 int main(){
-    //create a list
+    //create a linked list
     Node* head = new Node(10);
     Node* second = new Node(20);
     Node* third = new Node(30);
     Node* fourth = new Node(40);
+    // Node* fifth = new Node(50);
     head->next = second;
     second->next = third;
     third->next = fourth;
+    // fourth->next = fifth;
 
-
-    Node* prevNode = NULL;
-    Node* currNode = head;
-    //recursive
-    // head = reverseLL(prevNode,currNode);
-    //iterative
-    // head = reverseLL(head);
-
+    Node* middle = getMiddle(head);
+    cout<< middle->data << endl;
     cout<<"printing linked list" << endl;
     printLinkedList(head);
+
     return 0;
 }

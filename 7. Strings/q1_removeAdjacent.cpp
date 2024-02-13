@@ -13,7 +13,7 @@ string removeDuplicates(string s) {
                 newstr.pop_back();
             }
         }
-        else{//this case only for i=0 first character
+        else{
             newstr.push_back(s[i]);
         }
     }

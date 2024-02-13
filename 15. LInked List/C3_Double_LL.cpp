@@ -24,7 +24,7 @@ class Node{
     }
 };
 
-//print linked list Time = O(n) , Space = O(1)
+//1. print linked list Time = O(n) , Space = O(1)
 void printLL(Node*& head){
     Node* temp = head;
     while(temp != NULL){
@@ -33,7 +33,7 @@ void printLL(Node*& head){
     }
 }
 
-//find length of linked list Time = O(n) , Space = O(1)
+//2. find length of linked list Time = O(n) , Space = O(1)
 int findLength(Node*& head){
     int len = 0;
     Node* temp = head;
@@ -44,7 +44,7 @@ int findLength(Node*& head){
     return len;
 }
 
-//insert at head Time = O(1) , Space = O(1)
+//3.insert at head Time = O(1) , Space = O(1)
 void insertAtHead(Node*& head,Node*& tail,int data){
     Node* newNode = new Node(data);
     if(head == NULL){
@@ -57,7 +57,7 @@ void insertAtHead(Node*& head,Node*& tail,int data){
     head = newNode;
 }
 
-//insert at tail Time = O(1) , Space = O(1)
+//4. insert at tail Time = O(1) , Space = O(1)
 void insertAtTail(Node*& head,Node*& tail,int data){
     Node* newNode = new Node(data);
     if(head == NULL){
@@ -70,7 +70,7 @@ void insertAtTail(Node*& head,Node*& tail,int data){
     tail = newNode;
 }
 
-//insert after given position Time=O(n),space=O(1)
+//5. insert after given position Time=O(n),space=O(1)
 void insertAtPosition(Node*& head,Node*& tail,int data,int position){
     if(position == 0){
         insertAtHead(head,tail,data);
@@ -88,21 +88,22 @@ void insertAtPosition(Node*& head,Node*& tail,int data,int position){
         tail = newNode;
         return;
     }
+    //find prevNode and nextNode
     int i=1;
-    Node* leftNode = head;
+    Node* prevNode = head;
     while(i<position){
-        leftNode = leftNode->next;
+        prevNode = prevNode->next;
         i++;
     }
-    Node* rightNode = leftNode->next;
+    Node* nextNode = prevNode->next;
 
-    leftNode->next = newNode;
-    newNode->prev = leftNode;
-    newNode->next = rightNode;
-    rightNode->prev = newNode;
+    prevNode->next = newNode;
+    newNode->prev = prevNode;
+    newNode->next = nextNode;
+    nextNode->prev = newNode;
 }
 
-//delete head
+//6. delete head
 void deleteHead(Node*& head, Node*& tail){
     if(head == NULL){
         cout << "can not delete , list is already empty";
@@ -123,13 +124,13 @@ void deleteHead(Node*& head, Node*& tail){
     delete temp;
 }
 
-
-//delete tail
+//7. delete tail
 void deleteTail(Node*& head,Node*& tail){
     if(head == NULL){
         cout<<"can not delete,list is already empty";
         return;
     }
+    //check if there is one node in list
     int len = findLength(head);
     if(len == 1){
         deleteHead(head,tail);
@@ -137,13 +138,14 @@ void deleteTail(Node*& head,Node*& tail){
     }
 
     //here we not have to travese and find prev ,
-    // because we have access to prev pointer directly
+    //because we have access to prev pointer directly
     Node* temp = tail;
     tail = temp->prev;
     tail->next = NULL;
     delete temp;
 }
 
+//8. delete given position node
 void deleteAtPosition(Node*& head, Node*& tail,int position){
     if(head == NULL){
         cout << "can not delete , list is already empty";
@@ -159,25 +161,95 @@ void deleteAtPosition(Node*& head, Node*& tail,int position){
         return;
     }
 
-    //find leftNode,currNode,rightNode
+    //find prevNode,currNode,nextNode
     int i=1;
-    Node* leftNode = head;
+    Node* prevNode = head;
     while(i < position-1){
-        leftNode = leftNode->next;
+        prevNode = prevNode->next;
         i++;
     }
-    Node* currNode = leftNode->next;
-    Node* rightNode = currNode->next;
+    Node* currNode = prevNode->next;
+    Node* nextNode = currNode->next;
 
     //operation
-    leftNode->next = rightNode;
-    rightNode->prev = leftNode;
+    prevNode->next = nextNode;
+    nextNode->prev = prevNode;
     currNode->prev = NULL;
     currNode->next = NULL;
     delete currNode;
 
 }
 
+//9. insert after given value
+void insertAfterValue(Node*& head,Node*& tail,int value,int data){
+    //create a newNode
+    Node* newNode = new Node(data);
+    //check if list is empty
+    if(head == NULL){
+        tail = newNode;
+        head = newNode;
+        return;
+    }
+    //find prevNode
+    Node* prevNode = head;
+    while(prevNode != NULL){
+        if(prevNode->data == value){
+            break;
+        }
+        else{
+            prevNode = prevNode->next;
+        }
+    }
+    //if node with value not found then insert at tail
+    if(prevNode == NULL){
+        insertAtTail(head,tail,data);
+        return;
+    }
+    //find currNode and operation
+    Node* currNode = prevNode->next;
+    newNode->next = currNode;
+    newNode->prev = prevNode;
+    prevNode->next = newNode;
+    currNode->prev = newNode;
+}
+
+//10. delete node with given value
+void DeleteNodeWithValue(Node*& head,Node*& tail,int value){
+    //check if list is empty
+    if(head == NULL){
+        cout << "can not delete , list is already empty" <<endl;
+        return;
+    }
+    //check if first node is value or not
+    if(head->data == value){
+        deleteHead(head,tail);
+        return;
+    }
+    //find prevNode and currNode
+    Node* prevNode = head;
+    while(prevNode->next != NULL){
+        if(prevNode->next->data == value){
+            break;
+        }
+        else{
+            prevNode = prevNode->next;
+        }
+    }
+    //if value not found
+    if(prevNode->next == NULL){
+        cout << "value not found"<<endl;
+        return;
+    }
+
+    //find curr node ,nextNode and operation
+    Node* currNode = prevNode->next;
+    Node* nextNode = currNode->next;
+    prevNode->next = currNode->next;
+    nextNode->prev = prevNode;
+    currNode->next = NULL;
+    currNode->prev = NULL;
+    delete currNode;
+}
 int main(){
     Node* head = NULL;
     Node* tail = NULL;
@@ -187,13 +259,15 @@ int main(){
     insertAtHead(head,tail,30);
     insertAtTail(head,tail,40);
     insertAtTail(head,tail,50);
-    insertAtTail(head,tail,60);
-    insertAtPosition(head,tail,15,3);
+    // insertAtTail(head,tail,60);
+    // insertAtPosition(head,tail,15,3);
+    // insertAfterValue(head,tail,20,60);
 
-    deleteHead(head,tail);
-    deleteTail(head,tail);
-    deleteAtPosition(head,tail,1);
-    
+    // deleteHead(head,tail);
+    // deleteTail(head,tail);
+    // deleteAtPosition(head,tail,1);
+    DeleteNodeWithValue(head,tail,10);
+
     printLL(head);
     return 0;
 }
