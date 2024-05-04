@@ -34,7 +34,7 @@ Node* insertIntoBST(Node* root,int data){
 }
 
 void takeInput(Node*& root){
-    int data;   
+    int data;
     cin >> data;
     while(data != -1){
         root = insertIntoBST(root,data);
@@ -42,27 +42,37 @@ void takeInput(Node*& root){
     }
 }
 
-bool find_Node(Node* root,int target){
+int find_minimum(Node* root){
     if(root == NULL){
-        return false;
+        return -1;
     }
 
-    if(root->data == target){
-        return true;
+    Node* temp = root;
+    while(temp->left != NULL){
+        temp = temp->left;
     }
-    if(target > root->data){
-        return find_Node(root->right,target);
+    return temp->data;
+}
+
+int find_maximum(Node* root){
+    if(root == NULL){
+        return -1;
     }
-    else{
-        return find_Node(root->left,target);
+
+    Node* temp = root;
+    while(temp->right != NULL){
+        temp = temp->right;
     }
-} 
+    return temp->data;
+}
 
 int main(){
     Node* root = NULL;
+    //100 150 200 175 160 140 210 205 190
     cout << "Enter the data for node : " << endl;
     takeInput(root);
 
-    cout << find_Node(root,190);
+    cout << find_minimum(root) << endl;
+    cout << find_maximum(root);
     return 0;
 }

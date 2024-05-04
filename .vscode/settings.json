@@ -5,6 +5,7 @@
         "cmath": "cpp",
         "vector": "cpp",
         "algorithm": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "stack": "cpp"
     }
 }

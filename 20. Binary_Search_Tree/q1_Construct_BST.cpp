@@ -63,6 +63,7 @@ void levelOrderTravesal(Node* root){
 
 int main(){
     Node* root = NULL;
+    //100 150 200 175 160 140 210 205 190
     cout << "Enter the data for node : " << endl;
     takeInput(root);
 
