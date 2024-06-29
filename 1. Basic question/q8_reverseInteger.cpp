@@ -21,7 +21,19 @@ int reverse(int x) {
         x = x / 10;
     }
     return isNeg ? -ans : ans;
-} 
+}
+
+//easy option
+// int reverseInterger(int num){
+//     int ans = 0;
+
+//     while(num){
+//         int lastbit = num % 10;
+//         ans = (ans * 10) + lastbit;
+//         num = num / 10;
+//     }
+//     return ans;
+// }
 
 int main(){
     cout<<"Hello"<<endl;

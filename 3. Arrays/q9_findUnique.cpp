@@ -3,6 +3,9 @@
 using namespace std;
 
 int findUnique(vector<int> arr){
+    //xor operator cancel out same element
+    //ex. 1 ^ 1 = 0 , 2 ^ 2 = 0
+
     int ans = 0;
     for(int i=0; i<arr.size(); i++){
         ans = ans ^ arr[i];

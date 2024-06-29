@@ -21,6 +21,15 @@ void moveNagative(vector<int>& arr){
             swap(arr[l],arr[h]);
         }
     }
+
+    //this also works - one pointer approach
+    // int start = 0;
+    // for(int i=0; i<arr.size(); i++){
+    //     if(arr[i] < 0){
+    //         swap(arr[start],arr[i]);
+    //         start++;
+    //     }
+    // }
 }
 
 int main(){

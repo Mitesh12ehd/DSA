@@ -44,5 +44,25 @@ int main(){
         cout<<endl;
     }
 
+    //option 2
+    // for(int i=0; i<n; i++){
+    //     for(int j=0; j<n-i-1; j++){
+    //         cout << " ";
+    //     }
+
+    //     int var = 1;
+    //     for(int j=0; j<i+1; j++){
+    //         if(i==0 || i==n-1 || j==0 || j==i){
+    //             cout << var << " ";
+    //         }
+    //         else{
+    //             cout << "  ";
+    //         }
+
+    //         var++;
+    //     }
+    //     cout << endl;
+    // }
+
     return 0;
 }

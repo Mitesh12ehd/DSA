@@ -13,7 +13,7 @@ string calc_Sum(int a[],int n,int b[],int m){
     while(i>=0 && j>=0){
         int x = a[i] + b[j] + carry;
         int digit = x % 10;
-        ans.push_back(digit + '0');
+        ans.push_back(digit + '0'); //to convert into charcter
         carry = x / 10;
         i--,j--;
     }

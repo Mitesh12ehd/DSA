@@ -8,8 +8,8 @@ int main(){
     cout<<"enter n"<<endl;
     cin>>n;
 
+    //option 1
     for(int i=0; i<n; i++){
-
         int num_index = 8-i;
         int end_index = i+1; //for raw 1 we want print 1 time only, for raw 2 print 2 time
 
@@ -25,5 +25,30 @@ int main(){
         }
         cout<<endl;
     }
+
+    //option 2
+    // for(int i=0; i<n; i++){
+    //     for(int j=0; j<8-i; j++){
+    //         cout << "*";
+    //     }
+
+    //     bool astrick = false;
+    //     for(int j=0; j<2*i+1; j++){
+    //         if(!astrick){
+    //             cout << i;
+    //             astrick = true;
+    //         }
+    //         else{
+    //             cout << "*";
+    //             astrick = false;
+    //         }
+    //     }
+
+    //     for(int j=0; j<8-i; j++){
+    //         cout << "*";
+    //     }
+
+    //     cout << endl;
+    // }
     return 0;
 }

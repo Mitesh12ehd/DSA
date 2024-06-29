@@ -1,24 +1,28 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int main(){
-    vector<int> arr{0,1,1,0,1,0,1,0,0,1,1,1,1,1,1,0,0};
 
-    int l = 0;
-    int h = arr.size() -1;
+void sort0and1(vector<int>& arr){
+    int start = 0;
+    int end = arr.size() - 1;
 
-    while(l<h){
-        if(arr[l]==0){
-            l++;
+    while(start < end){
+        if(arr[start] == 0){
+            start++;
         }
-        else if(arr[h]==1){
-            h--;
+        else if(arr[end] == 1){
+            end--;
         }
         else{
-            swap(arr[l],arr[h]);
+            swap(arr[start],arr[end]);
         }
     }
+}
 
+int main(){
+    vector<int> arr{0,1,1,0,1,0,1,0,0,1,1,1,1,1,1,0,0};
+    sort0and1(arr);
+    
     for(int i=0; i<arr.size(); i++){
         cout<<arr[i]<<" ";
     }

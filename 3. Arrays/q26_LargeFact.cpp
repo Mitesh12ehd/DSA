@@ -3,6 +3,19 @@
 #include<algorithm>
 using namespace std;
 
+//approach : 
+    //we multiply each number one by one.
+    //at each multiplication we store result in array
+    //it performed by book multiplication that we perform on book without calculator
+    // 12 * 6 =    1
+    //             12
+    //              6
+    //           -------
+    //             72
+
+//only catch is, array ans created in reverse order
+//dryrun on num = 7
+
 vector<int> factorial(int N){
     vector<int> ans;
     ans.push_back(1);
@@ -26,7 +39,7 @@ vector<int> factorial(int N){
 
 int main(){
     vector<int> ans;
-    ans = factorial(50);
+    ans = factorial(7);
     for(int i=0; i<ans.size(); i++){
         cout<<ans[i];
     }

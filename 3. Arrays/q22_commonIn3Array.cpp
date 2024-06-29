@@ -25,6 +25,7 @@ vector <int> findCommon (vector<int> A, vector<int> B, vector<int> C, int n1, in
             j++;
         }
         else{
+            //C[k] is smallest
             k++;
         }
     }

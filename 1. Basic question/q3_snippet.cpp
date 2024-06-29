@@ -26,7 +26,7 @@ int main(){
     // cout<< sum1;
 
     // int n = 157;
-    // float f = 2.7;
+    // float f = 2.2;
     // int diff = n-f;
     // cout<<diff;
 
@@ -43,6 +43,8 @@ int main(){
     // int a = 5;
     // cout<< (++a) * (++a);
 
+    //escape sequence
+    cout << "\a";
     
 
     return 0;

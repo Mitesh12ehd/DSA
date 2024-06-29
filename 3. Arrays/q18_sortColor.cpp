@@ -9,7 +9,7 @@ void sortColors(vector<int>& nums) {
     //method 1 --using sort function
     // sort(nums.begin(),nums.end());
 
-    //method 2 --by counting and override
+    //method 2 --by counting and override  time = O(n)
     // int zeros = 0;
     // int ones = 0;
     // int twos = 0;
@@ -38,7 +38,7 @@ void sortColors(vector<int>& nums) {
     //     i++;
     // }
 
-    //method 3 --in place,3 pointer approach
+    //method 3 --in place,3 pointer approach time = O(n)
     int l=0,m=0,h=nums.size()-1;
     while(m<=h){
         if(nums[m] == 0){
