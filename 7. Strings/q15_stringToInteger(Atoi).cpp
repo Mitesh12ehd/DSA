@@ -4,7 +4,7 @@ using namespace std;
 
 int myAtoi(string s) {
     int ans = 0;
-    int sign = 1; //take positive fisrt
+    int sign = 1; //take positive first
 
     int i=0;
     while(s[i] == ' '){
@@ -16,6 +16,7 @@ int myAtoi(string s) {
     }
 
     while(i<s.length()  &&  isdigit(s[i])){
+        //this if condition only intended to handle signed integer overflow
         if(ans > INT_MAX/10  ||  ( ans == INT_MAX/10 && s[i]>'7' )){
             return (sign == -1) ? (INT_MIN) : (INT_MAX);
         }
@@ -28,7 +29,7 @@ int myAtoi(string s) {
 
 
 int main(){
-    //leetcode 8
+    //leetcode 8 
     string s = "   -55mitesh";
     cout << myAtoi(s);
 

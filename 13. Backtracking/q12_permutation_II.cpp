@@ -1,8 +1,10 @@
 #include<iostream>
 #include<vector>
 #include<unordered_map>
+#include<set>
 using namespace std;
 
+//method 1
 void printAllPermutationsHelper(vector<int>& nums,int i,vector<vector<int>>& ans)
 {
     //base case
@@ -30,6 +32,36 @@ vector<vector<int>> printAllPermutations(vector<int>& nums) {
     printAllPermutationsHelper(nums,0,ans);
     return ans;
 }
+
+//method 2 easiest hand made = time = O(n!) space = O(n!)
+void helper(vector<int>& nums,set<vector<int>>& ans,int i){
+    int n = nums.size();
+    //base case
+    if(i == n-1){
+        ans.insert(nums);
+        return;
+    }
+
+    for(int j=i; j<n; j++){
+        swap(nums[i],nums[j]);
+        helper(nums,ans,i+1);
+        swap(nums[i],nums[j]);
+    }    
+}
+vector<vector<int>> permuteUnique(vector<int>& nums) {
+    int i=0;
+    set<vector<int>> ans;
+
+    helper(nums,ans,i);
+    
+    vector<vector<int>> finalAns;
+    for(auto it:ans){
+        finalAns.push_back(it);
+    }
+    return finalAns;
+}
+
+
 int main(){
     vector<int> nums{1,2,3};
     vector<vector<int>> ans = printAllPermutations(nums);

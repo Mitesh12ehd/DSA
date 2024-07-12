@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+// similar question leetcode 540 single element in array
+
 int findOddOccure(vector<int> arr){
     int start = 0; 
     int end = arr.size() - 1;
@@ -36,6 +38,7 @@ int findOddOccure(vector<int> arr){
     return -1;
 }
 int main(){
+
     vector<int> arr{1,1,2,2,3,3,4,4,3,600,600,4,4};
     int ans = findOddOccure(arr);
     cout<<arr[ans];

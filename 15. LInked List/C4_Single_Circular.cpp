@@ -15,7 +15,7 @@ class Node{
         this->next = NULL;
     }
     ~Node(){
-        //here we have to destructor
+        //here we have to write destructor
         cout << "Node with value = "<< this->data << " is deleted" <<endl;
     }
 };
@@ -26,21 +26,27 @@ void printLL(Node*& start){
         cout << "list is empty";
         return;
     }
+
     Node* temp = start;
-    do{
-        cout << temp->data<<" ";
+    cout << temp->data << " ";
+    temp = temp->next;
+
+    while(temp != start){
+        cout << temp->data <<" ";
         temp = temp->next;
-    }while(temp != start);
+    }
 }
 
 //2. find length
 int findLength(Node*& first){
     int len = 0;
     Node* temp = first;
-    do{
+    len++;
+    temp = temp->next;
+    while(temp != first){
         len++;
         temp = temp->next;
-    }while(temp != first);
+    }
     return len;
 }
 
@@ -147,7 +153,7 @@ int main(){
     // insertAfterValue(first,30,40);
     // insertAfterValue(first,40,73);
 
-    deleteValue(first,10);
+    // deleteValue(first,10);
 
     printLL(first);
 

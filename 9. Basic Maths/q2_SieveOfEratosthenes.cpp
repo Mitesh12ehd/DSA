@@ -6,20 +6,30 @@ using namespace std;
 int countsieves(int n){
     //method 3 Sieve of Eratosthenes Time = O(n*loglog n)
     // if(n == 0){
-    //     return 0;
+    //         return 0;
     // }
-    // vector<bool> sieve(n+1,true);//all are marked sieve
+
+    // vector<bool> sieve(n,true);
     // sieve[0] = sieve[1] = false;
 
-    // for(int i=2; i<=n; i++){
+    // for(int i=2; i<n; i++){
     //     if(sieve[i]){
-    //         int j=i*2;
-    //         while(j<=n){
+    //         int j = i*2;
+    //         while(j < n){
     //             sieve[j] = false;
     //             j = j + i;
     //         }
     //     }
     // }
+    // //count false marked number
+    // int ans = 0;
+    // for(int i=0; i<n; i++){
+    //     if(sieve[i]){
+    //         ans++;
+    //     }
+    // }
+    // return ans;
+
 
     // method 4 --optimized Sieve of eratothenes
     if(n == 0){

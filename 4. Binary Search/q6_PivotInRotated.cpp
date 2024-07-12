@@ -8,6 +8,10 @@ int findPivot(vector<int> arr) {
     int mid = start + (end-start)/2;
     while(start<=end){
         if(start == end){
+            //to handle case when array is sorted and not rotated
+            //we return max largest element that is placed at last position in array
+            //by executing algorithm it reach at start= last, end = last
+            //hence we return last
             return start;
         }
         else if( mid+1<=end && arr[mid] > arr[mid+1]){
@@ -17,7 +21,7 @@ int findPivot(vector<int> arr) {
             return mid-1;
         }
         else if(arr[start] > arr[mid]){
-            //left
+            //left - [reason rotated]
             end = mid-1;
         }
         else{

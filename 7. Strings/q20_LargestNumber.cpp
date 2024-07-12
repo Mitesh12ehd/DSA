@@ -15,7 +15,7 @@ string largestNumber(vector<int>&nums){
     }
 
     sort(snums.begin(),snums.end() , mycomparator);
-    if(snums[0] == "0"){
+    if(snums[0] == "0"){ 
         return "0";
     }
 

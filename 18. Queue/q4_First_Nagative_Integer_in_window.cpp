@@ -2,22 +2,22 @@
 #include<queue>
 using namespace std;
 
-void solve(int arr[],int n,int k){
-    for(int i=0; i<n-k+1; i++){
-        bool nagativeFind = false;
+// void solve(int arr[],int n,int k){
+//     for(int i=0; i<n-k+1; i++){
+//         bool nagativeFind = false;
         
-        for(int j=i; j<i+k; j++){
-            if(arr[j] < 0){
-                nagativeFind = true;
-                cout << arr[j] << " ";
-                break;
-            }
-        }
-        if(nagativeFind == false){
-            cout << "0";
-        }
-    }
-}
+//         for(int j=i; j<i+k; j++){
+//             if(arr[j] < 0){
+//                 nagativeFind = true;
+//                 cout << arr[j] << " ";
+//                 break;
+//             }
+//         }
+//         if(nagativeFind == false){
+//             cout << "0";
+//         }
+//     }
+// }
 
 void solve(int arr[],int n,int k){
     queue<int> q;

@@ -28,7 +28,7 @@ void printLinkedList(Node*& head){
         temp = temp->next;
     }
 }
-//method 1
+//method 1 leetcode 
 // bool detectLoop(Node*& head){
 //     if(head == NULL){
 //         cout << "LL is empty";
@@ -69,7 +69,7 @@ bool detectLoop(Node*& head){
     return false;
 }
 
-// time O(A+kC)
+// time O(A+kC)  //leetcode 142
 Node* findStartingPoint(Node*& head){
     if(head == NULL){
         cout << "LL is empty";

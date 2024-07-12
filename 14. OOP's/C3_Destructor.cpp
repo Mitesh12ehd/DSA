@@ -22,5 +22,7 @@ int main(){
     //manually destructor call
     delete lion;
 
+    
+
     return 0;
 }

@@ -43,11 +43,12 @@ bool solve(vector<vector<char>>& board) {
                         }
                     }
                 }
+                
                 //if 1 se 9 tak koi bhi value se solution
                 //nahi nikla ,current cell pr, 
                 //that means piche kahin pr galti h , 
                 //go back by returning false
-            return false;
+                return false;
             }
         }
     }

@@ -1,9 +1,11 @@
+#include<vector>
+
 class MinStack {
 public:
     vector< pair<int,int> > st;
     
     MinStack() {
-        
+         
     }
     
     void push(int val) {
@@ -17,7 +19,7 @@ public:
             pair<int,int> p;
             p.first = val;
             p.second = min(val , st.back().second);
-            st,push_back(p);
+            st.push_back(p);
         }
     }
 

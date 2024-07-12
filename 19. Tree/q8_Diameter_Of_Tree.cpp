@@ -27,17 +27,17 @@ int height(Node* root){
 }
 
 // //method 1
-// int diameterOfBinaryTree(Node* root) {
-//     if(root == NULL){
-//         return 0;
-//     }
+int diameterOfBinaryTree(Node* root) {
+    if(root == NULL){
+        return 0;
+    }
 
-//     int op1 = diameterOfBinaryTree(root->left);
-//     int op2 = diameterOfBinaryTree(root->right);
-//     int op3 = height(root->left) + 1 + height(root->right);
+    int op1 = diameterOfBinaryTree(root->left);
+    int op2 = diameterOfBinaryTree(root->right);
+    int op3 = height(root->left) + 1 + height(root->right);
 
-//     return max(op1,max(op2,op3));
-// }
+    return max(op1,max(op2,op3));
+}
 
 //method 2
 pair<int,int> diameterHelper(Node* root){

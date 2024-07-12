@@ -91,6 +91,37 @@ Node *getIntersectionNode(Node *headA, Node *headB) {
     }
     return headA;
 }
+
+//easy hand made method2
+Node *getIntersectionNode(Node *headA, Node *headB) {
+    int len1 = findlength_Of_LinkedList(headA);
+    int len2 = findlength_Of_LinkedList(headB);
+
+    Node* tempA = headA;
+    Node* tempB = headB;
+
+    if(len1 > len2){
+        int n = len1-len2;
+        for(int i=1; i<=n; i++){
+            tempA = tempA->next;
+        }
+    }
+    else{
+        int n = len2-len1;
+        for(int i=1; i<=n; i++){
+            tempB = tempB->next;
+        }
+    }
+
+    while(tempA != NULL && tempB != NULL){
+        if(tempA == tempB){
+            return tempA;
+        }
+        tempA = tempA->next;
+        tempB = tempB->next;
+    }
+    return NULL;
+}
 int main(){
     Node* headA = new Node(1);
     Node* second1 = new Node(2);

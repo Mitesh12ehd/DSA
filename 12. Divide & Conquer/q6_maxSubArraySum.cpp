@@ -3,24 +3,37 @@
 #include<limits.h>
 using namespace std;
 
-//method 1 brute force
-// int maxSubArray(vector<int>& arr) {
-//     int n = arr.size();
-//     int finalsum = INT_MIN;
-//     int sum;
-//     for(int i=0; i<n; i++){
-//         for(int j=0; j<n; j++){
-//             sum = arr[i];
-//             for(int k=i+1; k<=j; k++){
-//                 sum = sum + arr[k];
-//             }
-//             if(sum > finalsum){
-//                 finalsum = sum;
-//             }
-//         }
-//     }
-//     return finalsum;
-// }
+//method 1 brute force time = O(N^3)
+int maxSubArray(vector<int>& arr) {
+    int n = arr.size();
+    int finalsum = INT_MIN;
+
+    for(int i=0; i<n; i++){
+        for(int j=i; j<n; j++){
+            int sum = 0;
+            for(int k=i; k<=j; k++){
+                sum = sum + arr[k];
+            }
+            finalsum = max(finalsum,sum);
+        }
+    }
+    return finalsum;
+}
+
+//method 2 brute force time = O(N^2)
+int maxSubArray(vector<int>& arr) {
+    int n = arr.size();
+    int finalsum = INT_MIN;
+
+    for(int i=0; i<n; i++){
+        int sum = 0;
+        for(int j=i; j<n; j++){
+            sum = sum + arr[j];
+            finalsum = max(finalsum,sum);
+        }
+    }
+    return finalsum;
+}   
 
 
 int maxSubArrayHelper(vector<int>& arr,int start,int end){
@@ -40,7 +53,7 @@ int maxSubArrayHelper(vector<int>& arr,int start,int end){
         leftBorderSum = leftBorderSum + arr[i];
         if(leftBorderSum > maxLeftBorderSum){
             maxLeftBorderSum = leftBorderSum;
-        }
+        }   
     }
     for(int i=mid+1; i<=end; i++){
         rightBorderSum = rightBorderSum + arr[i];
@@ -57,22 +70,22 @@ int maxSubArray(vector<int>& arr) {
     return maxSubArrayHelper(arr,0,arr.size()-1); 
 }
 
-//method 3 kadane'  s algorithm
-// int maxSubArray(vector<int>& arr) {
-//     int maxSum = INT_MIN;
-//     int currentSum = 0;
-    
-//     for (int i = 0; i < arr.size(); i++) {
-//         currentSum += arr[i];
-//         if (currentSum > maxSum) {
-//             maxSum = currentSum;
-//         }
-//         if (currentSum < 0) {
-//             currentSum = 0;
-//         }
-//     }
-//     return maxSum;
-// }
+// method 3 kadane'  s algorithm
+int maxSubArray(vector<int>& nums) {
+    int maxi = INT_MIN;
+    int sum = 0;
+
+    for(int i=0; i<nums.size(); i++){
+        sum = sum + nums[i];
+        
+        maxi = max(sum,maxi);
+        
+        if(sum < 0){
+            sum = 0;
+        }
+    }
+    return maxi;
+}
 
 int main(){
     //leetcode 53

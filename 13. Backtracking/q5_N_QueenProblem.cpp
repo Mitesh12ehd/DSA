@@ -69,5 +69,6 @@ int main(){
     // - empty cell
     // Q queen at that cell
     solveProblem(board,col,n);
+
     return 0;
 }

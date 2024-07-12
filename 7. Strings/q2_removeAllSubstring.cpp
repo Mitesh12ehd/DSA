@@ -10,6 +10,9 @@ string removeOccurrences(string s, string part) {
     }
     return s;
 }
+
+//second method is done in recursion
+
 int main(){
     string s="daabcbaabcbc";
     string part="abc";

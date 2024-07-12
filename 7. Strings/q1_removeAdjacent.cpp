@@ -2,6 +2,7 @@
 #include<string>
 using namespace std;
 
+//time = O(n) space = O(n)
 string removeDuplicates(string s) {
     string newstr;
     for(int i=0; i<s.length(); i++){

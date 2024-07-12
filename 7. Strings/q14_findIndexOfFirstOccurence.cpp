@@ -2,6 +2,8 @@
 #include<string>
 using namespace std;
 
+//this is brute force of string matching called naive appproach
+//other algortihm of string matching are kmp,rabin karp,finite automata
 int strStr(string haystack, string needle) {
     int n = haystack.length();
     int m = needle.length();

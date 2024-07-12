@@ -142,6 +142,7 @@ void deleteTail(Node*& head,Node*& tail){
     Node* temp = tail;
     tail = temp->prev;
     tail->next = NULL;
+    temp->prev = NULL;
     delete temp;
 }
 

@@ -50,7 +50,7 @@ pair<bool,int> isBalancedHelper(Node* root){
     pair<bool,int> leftAns = isBalancedHelper(root->left);
     pair<bool,int> rightAns = isBalancedHelper(root->right);
     bool diff = abs(leftAns.second - rightAns.second) <= 1;
-
+ 
     pair<bool,int> ans;
     ans.first = leftAns.first && rightAns.first && diff;
     ans.second = max(leftAns.second,rightAns.second) + 1;

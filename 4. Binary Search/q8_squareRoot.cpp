@@ -4,7 +4,7 @@ using namespace std;
 int squareRoot(int n){
     int start = 0;
     int end = n;
-    int mid = start + (end-start)/2;
+    long long mid = start + (end-start)/2;
     int ans = -1;
 
     while(start<=end){
@@ -31,9 +31,9 @@ int main(){
     cin>>number;
     int ans = squareRoot(number);
     cout<<"Square Root Integer= "<<ans<<endl<<endl;
-    double finalAns = ans;
-
+    
     //find precesion number
+    double finalAns = ans;
     int precision;
     cout<<"enter floating point number you want = ";
     cin>>precision;

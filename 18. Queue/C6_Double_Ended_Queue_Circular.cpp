@@ -38,7 +38,7 @@ class DeQueue{
     }
     void pushFront(int data){
         if((front == 0 && rear == size-1) || rear == front-1){
-            //check queue full
+            //chec  k queue full
             cout << "queue is full";
         }
         else if(front == -1){

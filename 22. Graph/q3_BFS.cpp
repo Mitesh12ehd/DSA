@@ -69,7 +69,7 @@ int main(){
 
     unordered_map<int,bool> visited;
     int n = 7; //number of node
-    for(int i=0; i<=n; i++){
+    for(int i=0; i<n; i++){
         if(!visited[i]){
             g.bfs(i,visited);
         }

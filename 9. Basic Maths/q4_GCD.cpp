@@ -30,6 +30,28 @@ int findGCD(int A,int B){
     }
     return (A==0) ? (B) : (A);
 }
+
+//euclidian algorithm clear using recursion
+int solveProblem(int m,int n){
+        if(n == 0){
+            return m;
+        }
+        
+        return solveProblem(n,m%n);
+    }
+int gcd(int a, int b){
+    if(a==0){
+        return a;
+    }
+    if(b==0){
+        return b;
+    }
+        
+    int m = max(a,b);
+    int n = min(a,b);
+    return solveProblem(m,n);
+}
+
 int main(){
     int a=100, b=125;
     cout << findGCD(a,b);

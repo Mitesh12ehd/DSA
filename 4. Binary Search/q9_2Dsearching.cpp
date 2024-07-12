@@ -6,6 +6,7 @@ bool binarySearch(int arr[][4],int rows, int columns,int target){
     int mid = start + (end-start) / 2;
 
     while(start<=end){
+        //formula taken from reversing 2D matrix formula
         int rowIndex = mid / columns;
         int columnIndex = mid % columns;
 

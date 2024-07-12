@@ -2,6 +2,10 @@
 #include<vector>
 using namespace std;
 
+//defination of sorted array
+//element that is placed on i'th index in sorted order,
+//in nearly sorted array it find out on (i-1) or (i) or (i+1) index
+
 int binarySearch(vector<int> arr,int key){
     int start = 0;
     int end = arr.size()-1;

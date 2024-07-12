@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+// approach : how many swap require to convert given array to sorted array.
+
 long mergeTwoSortedArray(vector<int>& arr, int start, int end){
     long count = 0;
     //step 1- create a two array

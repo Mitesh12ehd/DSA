@@ -5,6 +5,7 @@
 #include<limits.h>
 using namespace std;
 
+// time = O(nlogn) , space = O(n)
 int findMinDifference(vector<string>& timePoints) {
     vector<int> minutesArray;
     for(int i=0; i<timePoints.size(); i++){
@@ -31,7 +32,7 @@ int findMinDifference(vector<string>& timePoints) {
 int main(){
     vector<string> arr{"12:10","10:15","13:15","17:20","18:00","19:47","23:59"};
     int ans = findMinDifference(arr);
-    cout<<ans;
+    // cout<<ans;
 
     return 0;
 }

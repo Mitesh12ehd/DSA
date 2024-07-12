@@ -35,10 +35,10 @@ int main(){
 
     *(b.y) = 20;
     b.x = 10;
-    cout << "printing b" << endl;
+    cout << "printing b";
     b.print();
   
-    cout << "printing a" << endl;
+    cout << "printing a";
     a.print();
     return 0;
 }

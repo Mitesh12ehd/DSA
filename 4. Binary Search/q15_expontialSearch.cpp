@@ -31,7 +31,7 @@ int expontialSearch(vector<int> &arr,int key){
     return binarySearch(arr, start, end, key);
 }
 int main(){
-    vector<int> arr{3,4,5,6,11,13,14,15,56,70};
+    vector<int> arr{3,4,5,6,11,13,14,15,56,70}; 
     int key = 13;
     cout<<expontialSearch(arr,key);
 

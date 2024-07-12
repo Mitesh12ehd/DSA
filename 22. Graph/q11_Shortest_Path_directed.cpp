@@ -15,7 +15,7 @@ class Graph{
     void addEdge(int u,int v,int weight,bool direction){
         //direction = 0, undirected
         //direction = 1, directed
-
+ 
         //create edge from u to v
         adjList[u].push_back({v,weight});
         if(direction == 0){
