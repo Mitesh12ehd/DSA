@@ -1,5 +1,7 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
+#include<map>
 using namespace std;
 
 int lowerBound(vector<int>&arr , int x){
@@ -62,6 +64,25 @@ vector<int> findClosestElements(vector<int>& arr, int k, int x) {
     }
     return ans;
 }
+
+//solution using multimap
+// vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+//     multimap<int,int> mp;
+
+//     for(auto it:arr){
+//         int diffrence = abs(it - x);
+//         mp.insert({diffrence,it});
+//     }
+
+//     auto it = mp.begin();
+//     vector<int> ans;
+//     for(int i=1; i<=k; i++){
+//         ans.push_back(it->second);
+//         it++;
+//     }
+//     sort(ans.begin(),ans.end());
+//     return ans;
+// }
 int main(){
     vector<int> arr{12,16,22,30,35,39,42,45,48,50,53,55,56};
     int k = 4;

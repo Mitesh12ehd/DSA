@@ -15,8 +15,8 @@ int abc::y;
 
 int main(){
     abc obj1;
-    obj1.abc::x = 1;
-    obj1.abc::y = 2;
+    obj1.x = 1;
+    obj1.y = 2;
     obj1.print();
 
     abc obj2;

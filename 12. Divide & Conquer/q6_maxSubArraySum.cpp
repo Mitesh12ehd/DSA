@@ -65,12 +65,12 @@ int maxSubArrayHelper(vector<int>& arr,int start,int end){
     return max(maxLeftSum,max(maxRightSum,crossBorderSum));
 }
 
-//method 2
+//method 3 - divide and conquer
 int maxSubArray(vector<int>& arr) {
     return maxSubArrayHelper(arr,0,arr.size()-1); 
 }
 
-// method 3 kadane'  s algorithm
+// method 4 kadane's algorithm time = O(n)
 int maxSubArray(vector<int>& nums) {
     int maxi = INT_MIN;
     int sum = 0;

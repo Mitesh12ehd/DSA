@@ -265,3 +265,15 @@
        12    21
        123  321
        12344321
+
+36. 10 9 8 7   for n = 4;  (tatvasoft)
+    6 5 4
+    3 2
+    1
+
+37. 10 * * * 9 * * 8 * 7  (tatvasoft)
+    6  * * 5 * 4
+    3  * 2
+    1
+
+hello myselft mitesh chavda i am from surendranagar

@@ -63,6 +63,9 @@ int findPairs(vector<int>& nums, int k) {
     return ans.size();
 }
 
+//brute force method using two for loop and set to store ans
+//time = O(n^2 * logn)
+
 int main(){
     vector<int> nums{3,1,4,1,5};
     int k = 2;

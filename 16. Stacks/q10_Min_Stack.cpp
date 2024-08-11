@@ -32,6 +32,6 @@ public:
     }
     
     int getMin() {
-        st.back().second;
+        return st.back().second;
     }
 };

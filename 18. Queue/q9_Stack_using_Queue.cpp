@@ -35,7 +35,7 @@ public:
     }
 };
 
-//method 2 : using 1 queue
+//method 2 : using 1 queue  ->front points top of stack
 class MyStack {
 public:  
     queue<int> q;

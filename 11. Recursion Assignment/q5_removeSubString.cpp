@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+//same question done in string topic by iterative approach leetcode 1910
+
 //time O(n^2), space O(n/m)
 void removeOccurence(string &s, string& part){
     int found = s.find(part);

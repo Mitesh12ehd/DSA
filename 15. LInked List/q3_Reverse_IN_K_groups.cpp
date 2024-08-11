@@ -63,11 +63,9 @@ Node* reverseLL(Node*& head,int k){
     }
 
     //step 2. reverese a remain node by rescursion
-    if(nextNode != NULL){
-        //here we have written head->next beacuse when k node reveresed,
-        //head is shifted at the end
-        head->next = reverseLL(nextNode,k);
-    }
+    //here we have written head->next beacuse when k node reveresed,
+    //head is shifted at the end
+    head->next = reverseLL(nextNode,k);
 
     //step 3. return prevNode
     return prevNode;

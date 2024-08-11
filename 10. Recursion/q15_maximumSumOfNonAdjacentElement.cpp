@@ -14,6 +14,24 @@ void solveProblem(vector<int> arr,int i,int sum,int &maximum_sum){
     //exclude
     solveProblem(arr, i+1, sum, maximum_sum);
 }
+
+//backtrack method
+// void helper(vector<int>& arr,int i,int& sum,int& maxSum){
+//     if(i >= arr.size()){
+//         maxSum = max(sum,maxSum);
+//         return;
+//     }
+
+//     //include
+//     sum = sum + arr[i];
+//     helper(arr,i+2,sum,maxSum);
+//     sum = sum - arr[i];
+
+//     //exclude
+//     helper(arr,i+1,sum,maxSum);
+// }
+
+
 int main(){
     vector<int> arr{2,1,4,9};
     int sum = 0;

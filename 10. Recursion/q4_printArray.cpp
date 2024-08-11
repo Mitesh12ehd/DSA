@@ -3,7 +3,7 @@ using namespace std;
 
 void print(int arr[],int n,int i){
     //base condition
-    if(i >= n){
+    if(i >= n) {
         return;
     }
     //processing

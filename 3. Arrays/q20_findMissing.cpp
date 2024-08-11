@@ -7,7 +7,7 @@ void findMissing(vector<int>& arr){
     for(int i=0; i<arr.size(); i++){
         int index = abs(arr[i]);
 
-        //we take index-1 just to conver 1-indexed array
+        //we take index-1 just to convert 1-indexed array
         if(arr[index - 1] > 0){
             arr[index - 1] = arr[index - 1] * (-1); 
         }

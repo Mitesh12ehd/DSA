@@ -5,15 +5,15 @@ using namespace std;
 //this is brute force of string matching called naive appproach
 //other algortihm of string matching are kmp,rabin karp,finite automata
 int strStr(string haystack, string needle) {
-    int n = haystack.length();
-    int m = needle.length();
+    int m = haystack.length();
+    int n = needle.length();
 
-    for(int i=0; i<=n-m; i++){
-        for(int j=0; j<m; j++){
+    for(int i=0; i<=m-n; i++){
+        for(int j=0; j<n; j++){
             if(needle[j] != haystack[i+j]){
                 break;
             }
-            if(j == m-1){
+            if(j == n-1){
                 return i;
             }
         }

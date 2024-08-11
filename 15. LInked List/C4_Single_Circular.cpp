@@ -52,7 +52,7 @@ int findLength(Node*& first){
 
 //insert after value
 //here we must give value that is present in list
-//if it not present it placed radomly;
+//if it not present it placed randomly;
 void insertAfterValue(Node*& first,int value,int data){
     Node* newNode = new Node(data);
     //check if it is first node

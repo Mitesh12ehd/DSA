@@ -3,31 +3,35 @@
 #include<algorithm>
 using namespace std;
 
-bool checkAlphabet(char ch){
-    if( (ch>=97 && ch<=122) || (ch>=65 && ch<=90)){
+bool isAlphabet(char ch){
+    if(ch >= 'a' && ch <= 'z'){
+        return true;
+    }
+    else if(ch >= 'A' && ch <= 'Z'){
         return true;
     }
     return false;
 }
 string reverseOnlyLetters(string s) {
-    int i=0;
-    int j=s.length() - 1;
+    int start = 0;
+    int end = s.length()-1;
 
-    while(i<=j){
-        if( checkAlphabet(s[i]) && checkAlphabet(s[j]) ){
-            swap(s[i],s[j]);
-            i++;
-            j--;
+    while(start<=end){
+        if(!isAlphabet(s[start])){
+            start++;
         }
-        else if(!checkAlphabet(s[i])){
-            i++;
+        else if(!isAlphabet(s[end])){
+            end--;
         }
         else{
-            j--;
+            swap(s[start],s[end]);
+            start++,end--;
         }
     }
+
     return s;
 }
+
 int main(){
     string s="ab-cd";
     cout<<reverseOnlyLetters(s);

@@ -16,7 +16,7 @@ int compress(vector<char>& s) {
             s[index] = prev;
             index++;
             if(count>1){
-                //reverese is handle to to digit character
+                //reverese is handle to two digit character
                 int start = index;
                 while(count){
                     s[index] = (count%10) + '0';
@@ -25,7 +25,7 @@ int compress(vector<char>& s) {
                 }
                 reverse(s.begin()+start , s.begin() + index);
                                         //s.begin()+index is explicit,
-                                        //till s.begin()+index-1 sorted.
+                                        //till s.begin()+index-1 reversed.
             }
             prev = s[i];
             count = 1;
@@ -48,6 +48,7 @@ int main(){
     //leetcode 443
     vector<char> temp{'a','a','b','b','c','c','c'};
     cout << compress(temp);
+
 
     return 0;
 }

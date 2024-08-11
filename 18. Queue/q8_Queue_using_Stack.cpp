@@ -2,7 +2,7 @@
 #include<stack>
 using namespace std;
 
-//method 1
+//method 1 s1.top points front of queue.
 class MyQueue {
 public:
     stack<int> s1;

@@ -12,6 +12,7 @@ int mincostTickets_Helper(vector<int>& days, vector<int>& costs, int i){
     //solve one case
     //1 day pass
     int cost1 = costs[0] + mincostTickets_Helper(days, costs, i+1);
+
     //7 day pass
     int passEndday = days[i] + 6;
     int j = i;
@@ -19,6 +20,7 @@ int mincostTickets_Helper(vector<int>& days, vector<int>& costs, int i){
         j++;
     }
     int cost7 = costs[1] + mincostTickets_Helper(days,costs, j);
+    
     //30 day pass
     passEndday = days[i] + 29;
     j = i;

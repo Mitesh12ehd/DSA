@@ -2,9 +2,12 @@
 using namespace std;
 
 bool stringCompare(string s, string t){
-    int i=0;
-    for(int j=i; j<s.length(); j++){
-        if(t[j] != s[i+j]){
+    if(s.length() != t.length()){
+        return false;
+    }
+
+    for(int i=0; i<s.length(); i++){
+        if(t[i] != s[i]){
             return false;
         }
     }
@@ -12,7 +15,7 @@ bool stringCompare(string s, string t){
 }
 int main(){
     string s = "mitesh";
-    string t = "mitegh";
+    string t = "migesh";
     cout << stringCompare(s,t);
 
     return 0;
