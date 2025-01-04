@@ -2,23 +2,7 @@
 #include<vector>
 using namespace std;
 
-bool isSafe(int row, int col, vector<vector<char>>& board, char value) {
-    int n = board.size();
-
-    for(int i=0; i<n; i++) {
-        //row check
-        if(board[row][i] == value)
-            return false;
-        
-        //col check
-        if(board[i][col] == value) 
-            return false;
-        //3*3 box check
-        if(board[3*(row/3)+(i/3)][3*(col/3)+(i%3)] == value) 
-            return false;
-    }
-    return true;
-}
+w
 bool solve(vector<vector<char>>& board) {
     int n = board.size();
 

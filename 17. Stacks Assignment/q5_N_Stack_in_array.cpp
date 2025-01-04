@@ -1,6 +1,11 @@
 #include<iostream>
 using namespace std;
 
+//1-intitution
+//next array point
+//if(arr[i] is filled) then point to next element after top in stack i.e.handle on insertion
+//else point to next free space i.e handle on deletion
+
 class NStack{
     int *a,*top,*next;
     int n; //number of stack

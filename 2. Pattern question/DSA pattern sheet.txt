@@ -275,5 +275,3 @@
     6  * * 5 * 4
     3  * 2
     1
-
-hello myselft mitesh chavda i am from surendranagar

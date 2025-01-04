@@ -3,6 +3,17 @@
 #include<cmath>
 using namespace std;
 
+//this algorithm used when we have to count primes between two number L and R
+
+//method 1 : brute force
+//1. allocate sieve of size R
+//2. apply sieve of eratothenis on seive
+//3. now count the primes between L and R
+//catch: problem is that we can't allocate array more than 10^6 to 10^8
+//                         (depends upon datatype,scope,cpu architecture)
+
+
+
 vector<bool> getSieve(int n){
     vector<bool> sieve(n+1,true);
     sieve[0] = sieve[1] = false;

@@ -9,16 +9,12 @@ bool isPossibleSolution(vector<int> rank,int nP,int mid){
         int j = 1;
         int timeTaked = 0;
 
-        while(true){
-            if(timeTaked + j*rank[i]  <=  mid){
-                cookedCount++;
-                timeTaked = timeTaked + j*rank[i];
-                j++;
-            }
-            else{
-                break;
-            }
+        while(timeTaked + j*rank[i]  <=  mid){
+            cookedCount++;
+            timeTaked = timeTaked + j*rank[i];
+            j++;
         }
+        
         if(cookedCount >= nP){
             return true;
         }

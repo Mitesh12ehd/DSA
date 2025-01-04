@@ -35,6 +35,8 @@ int maxSubArray(vector<int>& arr) {
     return finalsum;
 }   
 
+//to understand cross border sum dry run on
+// {-2,1,-3,4,-1,2,1,-5,4}
 
 int maxSubArrayHelper(vector<int>& arr,int start,int end){
     if(start == end){

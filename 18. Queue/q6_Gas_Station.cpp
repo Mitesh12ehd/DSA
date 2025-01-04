@@ -2,6 +2,59 @@
 #include<vector>
 using namespace std;
 
+//BRUTE FORCE TIME = O(n^2) SPACE = O(N)
+// int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+//     int n  = gas.size();
+//     for(int starting=0; starting<n; starting++){
+//         int filled = 0;
+
+//         int j = starting;
+//         bool isPossible = true;
+
+//         //starting point to end of array
+//         while(j < n){
+//             filled = filled + gas[j];
+
+//             if(filled >= cost[j]){
+//                 filled = filled - cost[j];
+//             }
+//             else{
+//                 isPossible = false;
+//                 break;
+//             }
+//             j++;
+//         }
+
+//         if(!isPossible){
+//             continue;
+//         }
+
+//         //0 to starting point-1;
+//         j = 0;
+//         while(j <= starting-1){
+//             filled = filled + gas[j];
+
+//             if(filled >= cost[j]){
+//                 filled = filled - cost[j];
+//             }
+//             else{
+//                 isPossible = false;
+//                 break;
+//             }
+//             j++;
+//         }
+
+
+//         if(!isPossible){
+//             continue;
+//         }else{
+//             return starting;
+//         }
+//     }
+//     return -1;
+// }
+ 
+//method 3
 int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
     int deficit = 0;
     int balance = 0;

@@ -77,17 +77,19 @@ class Queue{
 };
 
 int main(){
+
+    //dry run this example
     Queue q(10,3);
 
-    q.push(10,1);
-    q.push(15,1);
-    q.push(20,2);
-    q.push(25,1);
+    q.push(7,3);
+    q.push(8,3);
+    q.push(11,1);
+    q.push(12,3);
+    q.push(17,1);
+    q.push(20,1);
 
-    cout << q.pop(1) << endl;
-    cout << q.pop(2) << endl;
-    cout << q.pop(1) << endl;
-    cout << q.pop(1) << endl;
+    cout << q.pop(3) << endl;
+    cout << q.pop(3) << endl;
     cout << q.pop(1) << endl;
 
     return 0;

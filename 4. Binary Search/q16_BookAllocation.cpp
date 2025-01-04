@@ -10,7 +10,8 @@ bool isPossibleSolution(int A[],int N,int M,int sol){
         }
         if(pageSum + A[i] > sol){
             count++;
-            pageSum = A[i];
+            pageSum = 0;
+            pageSum = pageSum + A[i];
             if(count > M){
                 return false;
             }

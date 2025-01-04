@@ -4,7 +4,7 @@
 #include<set>
 using namespace std;
 
-//time = O(n^3 * logn) = O(N^3)
+//time = O(n^3 * log(number of unique triplets)) = O(N^3)
 //space = O(n/3) = O(n) 
 vector<vector<int>> threeSum(vector<int>& nums) {
     set<vector<int>> st;

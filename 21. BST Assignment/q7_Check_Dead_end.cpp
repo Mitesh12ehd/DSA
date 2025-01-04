@@ -46,6 +46,31 @@ bool isDeadEnd(Node *root){
     return ans;
 }
 
+//range based hand made approach
+// bool helper(Node* root,int mini,int maxi){
+//     if(!root->left && !root->right){
+//         bool isLeftNotPossible = (root->data + 1 == maxi);
+//         bool isRightNotPossible = mini + 1 == root->data;
+//         return isLeftNotPossible && isRightNotPossible;
+//     }
+//     if(!root->left){
+//         return helper(root->right,root->data,maxi);
+//     }
+//     if(!root->right){
+//         return helper(root->left,mini,root->data);
+//     }
+
+//     //left and right both exist
+//     bool leftAns = helper(root->left,mini,root->data);
+//     bool rightAns = helper(root->right,root->data,maxi);
+//     return leftAns || rightAns;
+// }
+// bool isDeadEnd(Node *root){
+//     int mini = 0;
+//     int maxi = 10002;
+//     return helper(root,mini,maxi);
+// }
+
 int main(){
     return 0;
 }

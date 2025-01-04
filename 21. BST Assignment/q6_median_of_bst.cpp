@@ -32,15 +32,14 @@ float findMedian(Node *root){
     store_inorder(root,inorder);
 
     int n = inorder.size();
-    if(n % 2 != 0){
-        //odd
-        return inorder[((n+1) / 2) - 1];
+    if(n % 2 == 1){
+        return inorder[n/2];
     }
     else{
-        //even
-        float even1 = inorder[(n/2) - 1];
-        float even2 = inorder[(n/2) + 1 - 1];
-        return (even1 + even2) / 2;
+        float n1 = inorder[n/2];
+        float n2 = inorder[(n/2) -1];
+        float ans = (float)(n1 + n2)/2;
+        return ans;
     }
 }
 

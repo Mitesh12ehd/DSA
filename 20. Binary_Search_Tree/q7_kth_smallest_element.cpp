@@ -37,9 +37,7 @@ int kthSmallest(Node* root, int k) {
 
     //right ans
     int rightAns = kthSmallest(root->right,k);
-    if(rightAns != -1){
-        return rightAns;
-    }
+    return rightAns;
 }
 
 int main(){

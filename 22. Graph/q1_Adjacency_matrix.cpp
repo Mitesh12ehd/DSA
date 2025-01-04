@@ -7,21 +7,24 @@ int main(){
     cout << "enter number of node : ";
     cin >> n;
 
-    vector<vector<int>> adj(n,vector<int>(n,0));
+    vector<vector<int>> adj(n+1,vector<int>(n+1,0));
 
-    int e;
+    int m;
     cout << "enter number of edge : ";
-    cin >> e;
+    cin >> m;
 
-    for(int i=0; i<e; i++){
+    for(int i=0; i<m; i++){
         int u,v;
         cin >> u >> v;
         //mark 1
+
+        //for undirected
+        adj[v][u] = 1;
         adj[u][v] = 1;
     }
 
     //printing
-    for(int i=0; i<n; i++){
+    for(int i=0; i<n+1; i++){
         for(int j=0; j<n; j++){
             cout << adj[i][j] << " ";
         }

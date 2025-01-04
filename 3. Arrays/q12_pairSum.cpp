@@ -33,7 +33,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
     return ans;
 }
 
-//two pointer work if we not hav   e to return index time = O(nlogn) , space = O(1)
+//two pointer work if we not have to return index time = O(nlogn) , space = O(1)
 vector<int> twoSum(vector<int>& nums, int target) {
     vector<int> ans;
     sort(nums.begin(),nums.end());

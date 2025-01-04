@@ -18,7 +18,7 @@ class Node{
     }
 };
 
-//method 1
+//method 2
 // vector<int> diagonal(Node *root){
 //     vector<int> ans;
 //     if(root == NULL){

@@ -22,6 +22,7 @@ bool isPossileSolution(vector<int> &stalls , int k,int mid){
     return false;
 }
 
+//here we take search space to check possible answer
 int solve(int n, int k, vector<int> &stalls) {
     sort(stalls.begin(),stalls.end());
     int start = 0;

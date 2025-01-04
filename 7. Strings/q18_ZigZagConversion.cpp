@@ -10,7 +10,7 @@ string convert(string s, int numRows) {
     vector<string> zigzag(numRows);
                     //it create total numrows vector of string
 
-    int i=0; 
+    int i=0;
     int row = 0;
     bool direction = 1;//1 denote top to bottom, 0 denote bottom to top
 

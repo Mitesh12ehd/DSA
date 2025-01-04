@@ -4,6 +4,39 @@
 #include<limits.h>
 using namespace std;
 
+//brute force time=O(n^2) space=O(n)
+int largestRectangleArea(vector<int>& heights) {
+    int n = heights.size();
+    int ans = INT_MIN;
+
+    for(int i=0; i<n; i++){
+        //extend left
+        int count = 0;
+        for(int j=i-1; j>=0; j--){
+            if(heights[j] >= heights[i]){
+                count++;
+            }
+            if(heights[j] < heights[i]){
+                break;
+            }
+        }
+
+        //extend right
+        for(int j=i; j<n; j++){
+            if(heights[j] >= heights[i]){
+                count++;
+            }
+            if(heights[j] < heights[i]){
+                break;
+            }
+        }
+
+        int area = heights[i] * count;
+        ans = max(ans,area);
+    }
+    return ans;
+}
+
 vector<int> next_Smaller_Element_Index(vector<int> arr){
     vector<int> ans(arr.size());
     stack<int> st;
@@ -39,6 +72,10 @@ vector<int> prev_Smaller_Element_index(vector<int> arr){
     return ans;
 }
 
+//intitution:
+//1. extend left untill we got smaller element
+//2. extend right untill we got smaller element
+
 int largestRectangleArea(vector<int>& heights) {
     vector<int> prev = prev_Smaller_Element_index(heights);
     vector<int> next = next_Smaller_Element_Index(heights);
@@ -58,6 +95,9 @@ int largestRectangleArea(vector<int>& heights) {
     }
     return maxArea;
 }
+
+
+
 
 int main(){
     vector<int> heights = {2,1,5,6,2,3};

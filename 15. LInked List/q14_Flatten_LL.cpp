@@ -61,12 +61,19 @@ Node* mergeTwoLists(Node* left, Node* right) {
     return ansHead;
 }
 Node *flatten(Node *root){
-    if(root == NULL){
-        return NULL;
+    if(!root || !root->next){
+        return root;
     }
-    Node* ptr = flatten(root->next);
-    Node* mergedLL = mergeTwoLists(root,ptr);
-    return mergedLL;
+        
+    Node* temp1 = root;
+    Node* temp2 = root->next;
+        
+    while(temp2 != NULL){
+        temp1 = mergeTwoLists(temp1,temp2);
+        temp2 = temp2->next;
+    }
+        
+    return temp1;
 }
 int main(){
     //see book and geeks for geeks

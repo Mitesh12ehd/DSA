@@ -4,24 +4,25 @@
 using namespace std;
 
 //method 1
-// int celebrity(vector<vector<int> >& M, int n) {
+// int celebrity(vector<vector<int> >& mat, int n) {
+//     int n = mat.size();
+        
 //     for(int i=0; i<n; i++){
-
-//         int countZeros = 0;
+//         bool isCelebrity = true;
+            
 //         for(int j=0; j<n; j++){
-//             if(M[i][j] == 0){
-//                 countZeros++;
+//             if(mat[i][j] == 1){
+//                 isCelebrity = false;
 //             }
 //         }
-
-//         int countOnes = 0;
+            
 //         for(int j=0; j<n; j++){
-//             if(M[j][i] == 1){
-//                 countOnes++;
+//             if(mat[j][i] == 0 && j != i){
+//                 isCelebrity = false;
 //             }
 //         }
-
-//         if(countZeros == n  &&  countOnes == n-1){
+            
+//         if(isCelebrity){
 //             return i;
 //         }
 //     }
@@ -53,7 +54,7 @@ int celebrity(vector<vector<int> >& M, int n) {
         }
     }
 
-    //step 3.sinfgle person in stack might be celebrity. verify it
+    //step 3.single person in stack might be celebrity. verify it
     int mightBeCelebrity = st.top();
     st.pop();
 

@@ -26,36 +26,72 @@ void printLinkedList(Node*& head){
         temp = temp->next;
     }
 }
+// Node* mergeNodes(Node* head) {
+//     Node* slow = head;
+//     Node* fast = head->next;
+//     Node* newLastNode = NULL;
+//     int sum = 0;
+//     while(fast != NULL){
+//         if(fast->data != 0){
+//             sum = sum + fast->data;
+//         }
+//         else{
+//             //fast value = 0;
+//             slow->data = sum;
+//             newLastNode = slow;
+//             slow = slow->next;
+//             sum = 0;
+//         }
+//         fast = fast->next;
+//     }
+
+//     Node* temp = newLastNode->next;
+//     newLastNode->next = NULL;
+
+//     //free memory
+//     while(temp != NULL){
+//         Node* temp1 = temp;
+//         temp = temp->next;
+//         delete temp1;
+//     }
+//     return head;
+// }
+
+//my method
 Node* mergeNodes(Node* head) {
-    Node* slow = head;
-    Node* fast = head->next;
-    Node* newLastNode = NULL;
+    //base case
+    if(head->next == NULL){
+        delete head;
+        return NULL;
+    }
+        
+    //delete zero node
+    Node* temp = head->next;
+    head->next = NULL;
+    delete head;
+
+    //count sum and delete nodes
     int sum = 0;
-    while(fast != NULL){
-        if(fast->data != 0){
-            sum = sum + fast->data;
-        }
-        else{
-            //fast value = 0;
-            slow->data = sum;
-            newLastNode = slow;
-            slow = slow->next;
-            sum = 0;
-        }
-        fast = fast->next;
-    }
+    while(temp->data != 0){
+        sum = sum + temp->data;
 
-    Node* temp = newLastNode->next;
-    newLastNode->next = NULL;
-
-    //free memory
-    while(temp != NULL){
-        Node* temp1 = temp;
+        //delete node
+        Node* dummy = temp;
         temp = temp->next;
-        delete temp1;
+        dummy->next = NULL;
+        delete dummy;
     }
-    return head;
+
+    //now add sum node
+    Node* newNode = new Node(sum);
+    newNode->next = temp;
+
+    //recursion
+    newNode->next = mergeNodes(temp);
+
+    return newNode;
 }
+
 int main(){
     Node* head = new Node(0);
     Node* second = new Node(3);

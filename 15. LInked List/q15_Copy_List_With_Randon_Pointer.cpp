@@ -72,6 +72,16 @@ Node* copyRandomList(Node* head) {
 
     //3.Deattcach new list and old list
     temp = head;
+    Node* newHead = temp->next;
+    while(temp != NULL){
+        Node* newTemp = temp->next;
+        Node* dummy = temp;
+        temp = temp->next->next;
+        dummy->next = NULL;
+        delete dummy;
+    }
+
+    temp = head;
     Node* clonedHead = temp->next;
     while(temp != NULL){
         Node* newNode = temp->next;

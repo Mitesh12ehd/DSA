@@ -34,9 +34,8 @@ void mergeTwoSortedArray(vector<int>& arr, int start, int end){
         }
         else{
             swap(arr[i],arr[j]);
-            //place j.th element to its right position using quick sort partion
+            //place j.th element to its right position using quick sort partition
             partition(arr,j,end);
-
         }
     }
 }

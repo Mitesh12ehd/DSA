@@ -33,12 +33,12 @@ int findGCD(int A,int B){
 
 //euclidian algorithm clear using recursion
 int solveProblem(int m,int n){
-        if(n == 0){
-            return m;
-        }
-        
-        return solveProblem(n,m%n);
+    if(n == 0){
+        return m;
     }
+        
+    return solveProblem(n,m%n);
+}
 int gcd(int a, int b){
     if(a==0){
         return a;

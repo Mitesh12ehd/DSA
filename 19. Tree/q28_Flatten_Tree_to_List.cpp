@@ -57,6 +57,28 @@ void flatten(Node* root) {
         curr = curr->right;
     }
 }
+
+//brute force hand made 
+// Node* helper(Node* root){
+//     if(!root){
+//         return NULL;
+//     }
+
+//     Node* rightPart = root->right;
+//     root->right = helper(root->left);
+
+//     Node* temp = root;
+//     while(temp->right != NULL){
+//         temp = temp->right;
+//     }
+        
+//     temp->right = helper(rightPart);
+//     root->left = NULL;
+//     return root;
+// }
+// void flatten(Node* root) {
+//     root = helper(root);
+// }
 int main(){
     return 0;
 }

@@ -1,86 +1,97 @@
 #include<iostream>
 #include<unordered_map>
-#include<list>
+#include<vector>
 
 using namespace std;
 
-class Graph{
-    public:
-    //non- weighted
-    unordered_map< int,list<int> > adjList;
-
-    void addEdge(int u,int v,bool direction){
-        //direction = 0, undirected
-        //direction = 1, directed
-
-        //create edge from u to v
-        adjList[u].push_back(v);
-        if(direction == 0){
-            // create add from v to u
-            adjList[v].push_back(u);
-        }
-    }
-
-    void printAdjacencyList(){
-        for(auto node:adjList){
-            cout << node.first << " -> ";
-            for(auto neighbour : node.second){
-                cout << neighbour << ",";
-            }
-            cout << endl;
-        }
-    }
-
-
-    //weighted
-    // unordered_map< int,list<pair<int,int>> > adjList;
-
-    // void addEdge(int u,int v,int weight,bool direction){
-    //     //direction = 0, undirected
-    //     //direction = 1, directed
-
-    //     //create edge from u to v
-    //     adjList[u].push_back({v,weight});
-    //     if(direction == 0){
-    //         // create add from v to u
-    //         adjList[v].push_back({u,weight});
-    //     }
-    // }
-
-    // void printAdjacencyList(){
-    //     for(auto node:adjList){
-    //         cout << node.first << " -> ";
-    //         for(auto neighbour : node.second){
-    //             cout << "("  << neighbour.first << "," << neighbour.second << "),";
-    //         }
-    //         cout << endl;
-    //     }
-    // }
-};
-
+//using array of list
 int main(){
-    // int n;
-    // cout << "enter number of node : ";
-    // cin >> n;
+    
+    int n;
+    cout << "enter number of node : ";
+    cin >> n;
 
-    // int e;
-    // cout << "enter number of edge : ";
-    // cin >> e;
+    int m;
+    cout << "enter number of edge : ";
+    cin >> m;
 
-    //undirected graph
-    // Graph g;
-    // g.addEdge(0,1,0);
-    // g.addEdge(1,2,0);
-    // g.addEdge(0,2,0);
-    // g.printAdjacencyList();
+    vector<int> adj[n+1];
 
-    //directed adge
-    Graph g;
-    g.addEdge(0,1,1);
-    g.addEdge(1,2,1);
-    g.addEdge(0,2,1);
-    g.printAdjacencyList();
+    for(int i=0; i<m; i++){
+        int u,v;
+        cin >> u >> v;
 
+        //for undirected
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
 
+    //printing
+    for(int i=0; i<n+1; i++){
+        cout << i << " -> ";
+        for(int j=0; j<adj[i].size(); j++){
+            cout << adj[i][j] << ",";
+        }
+        cout << endl;
+    }
     return 0;
 }
+
+//using list of list
+// int main(){
+//     int n;
+//     cout << "enter number of node : ";
+//     cin >> n;
+
+//     int m;
+//     cout << "enter number of edge : ";
+//     cin >> m;
+
+//     vector<vector<int>> adj(n+1);
+
+//     for(int i=0; i<m; i++){
+//         int u,v;
+//         cin >> u >> v;
+
+//         //for undirected
+//         adj[u].push_back(v);
+//         adj[v].push_back(u);
+//     }
+
+//     //printing
+//     for(int i=0; i<n+1; i++){
+//         cout << i << " -> ";
+//         for(int j=0; j<adj[i].size(); j++){
+//             cout << adj[i][j] << ",";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+//using map
+// int main(){
+//     int m;
+//     cout << "enter number of edge : ";
+//     cin >> m;
+
+//     unordered_map< int,vector<int> > adj;
+
+//     for(int i=0; i<m; i++){
+//         int u,v;
+//         cin >> u >> v;
+
+//         //for undirected
+//         adj[u].push_back(v);
+//         adj[v].push_back(u);
+//     }
+        
+//     for(auto node:adj){
+//         cout << node.first << " -> ";
+//         for(auto neighbour : node.second){
+//             cout << neighbour << ",";
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
