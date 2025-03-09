@@ -2,19 +2,40 @@
 #include<vector>
 using namespace std;
 
-//gfg
-//count inversions
+//leetcode 493
+//Reverse pairs
 
-long countInversion(vector<int>& arr,int start,int end){
+//brute force time = O(n^2)
+// int reversePairs(vector<int>& nums) {
+//     int n = nums.size();
+//     int count = 0;
+//     for(int i=0; i<n; i++){
+//         for(int j=i+1; j<n; j++){
+//             if(nums[i] > 2 * nums[j]){
+//                 count++;
+//             }
+//         }
+//     }
+//     return count;
+// }
+
+//optimal approach using merge sort
+//time = O(nlogn) we just iterate once array in merge two array function,
+//                so after this merge function takes O(n) time
+//space = O(n) 
+
+long countReversePair(vector<int>& nums,int start,int end){
     int mid = (start+end) / 2;
     int i = start;
-    int j = mid+1;
+    int j= mid+1;
     long count = 0;
 
     while(i<=mid && j<=end){
-        if(arr[i] > arr[j]){
-            //if current elment of left array is inversion rest element of left array is
-            //also inversion because rest element are greater,so calculate directly by formula
+        long long temp1 = nums[i];
+        long long temp2 = (long long) 2 * nums[j];
+        if(temp1 > temp2){
+            //if current elment of left array is reverse pair rest element of left array is
+            //also reverse pair so calculate directly by formula
             //and now consider next element in rightarray
             count = count + (mid-i+1);
             j++;
@@ -26,7 +47,7 @@ long countInversion(vector<int>& arr,int start,int end){
     return count;
 }
 long mergeTwoSortedArray(vector<int>& arr, int start, int end){
-    long count = countInversion(arr,start,end);
+    long count = countReversePair(arr,start,end);
     //step 1- create a two array
     int mid = (start + end) / 2;
 
@@ -98,29 +119,12 @@ long merge_sort(vector<int>& arr,int start,int end){
 
     return count;
 }
-//method 1
-long countInversions(vector<int> arr) {
+int reversePairs(vector<int>& nums) {
     long count = 0;
-    count = merge_sort(arr,0,arr.size()-1);
+    count = merge_sort(nums,0,nums.size()-1);
     return count;
 }
 
-
-//method 2
-// int countInversions(vector<int> arr){
-//     int count = 0;
-//     for(int i=0; i<arr.size(); i++){
-//         for(int j=i+1; j<arr.size(); j++){
-//             if(arr[i] >arr[j]){
-//                 count++;
-//             }
-//         }
-//     }
-//     return count;
-// }
 int main(){
-    //hackerrank
-    vector<int> arr{8,4,2,1};
-    cout << countInversions(arr);
     return 0;
 }

@@ -1,0 +1,35 @@
+1. why hashing comes?
+
+    if we count number of elements how mamy times it appers in the array
+    we can take large array and calculate all elements into them
+    but at max array can be 10^7 sized (may vary)
+    so that we need map to avoid large array for hashing
+
+    although hashing of charachter is easy 
+    because there can be 256 character only
+    int arr[256] = {0};
+
+2. time complexity of simple map?
+
+    for storing and fetching
+    time = log n
+    in all cases
+    map stores unique and sorted based on key
+
+3. we can use reduce unorderd_map to reduce time
+
+    store in unordered order
+    store unique based on key
+
+    time : for storing and fetching
+    O(1) in best and average case
+    O(n) in worst case in collision case
+
+    tips : always use unordered_map
+    if it gives TLE use simple map
+
+4. how hashing works?
+
+    ->division method
+    ->folding method
+    ->mid square method

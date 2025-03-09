@@ -89,6 +89,40 @@ int maxSubArray(vector<int>& nums) {
     return maxi;
 }
 
+//follow up question : print subarray with largest sum
+vector<int> print_maxSubArray(vector<int>& nums) {
+    int maxi = INT_MIN;
+    int sum = 0;
+    int ansStart = -1;
+    int ansEnd = -1;
+    int start = 0;
+
+    for(int i=0; i<nums.size(); i++){
+        if(sum = 0){
+            ansStart = i;
+        }
+
+        sum = sum + nums[i];
+        if(sum > maxi){
+            maxi = sum;
+            ansStart = start;
+            ansEnd = i;
+        }
+        maxi = max(sum,maxi);
+        
+        if(sum < 0){
+            sum = 0;
+        }
+    }
+
+    vector<int> ans;
+    for(int i=ansStart; i<=ansEnd; i++){
+        ans.push_back(nums[i]);
+    }
+    return ans;
+}
+
+
 int main(){
     //leetcode 53
     vector<int> arr{-2,1,-3,4,-1,2,1,-5,4};

@@ -1,44 +1,46 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-
 using namespace std;
 
+//time = O(nlogn)
 void sortColors(vector<int>& nums) {
+    sort(nums.begin(),nums.end());
+}
 
-    //method 1 --using sort function
-    // sort(nums.begin(),nums.end());
+//count frequency of zeros ones and twos
+void sortColors(vector<int>& nums) {
+    int zeros = 0;
+    int ones = 0;
+    int twos = 0;
+    for(int i=0; i<nums.size(); i++){
+        if(nums[i] == 0){
+            zeros++;
+        }
+        else if(nums[i] == 1){
+            ones++;
+        }
+        else{
+            twos++;
+        }
+    }
+    int i=0;
+    while(zeros--){
+        nums[i] =0;
+        i++;
+    }
+    while(ones--){
+        nums[i] =1;
+        i++;
+    }
+    while(twos--){
+        nums[i] =2;
+        i++;
+    }
+}
 
-    //method 2 --by counting and override  time = O(n)
-    // int zeros = 0;
-    // int ones = 0;
-    // int twos = 0;
-    // for(int i=0; i<nums.size(); i++){
-    //     if(nums[i] == 0){
-    //         zeros++;
-    //     }
-    //     else if(nums[i] == 1){
-    //         ones++;
-    //     }
-    //     else{
-    //         twos++;
-    //     }
-    // }
-    // int i=0;
-    // while(zeros--){
-    //     nums[i] =0;
-    //     i++;
-    // }
-    // while(ones--){
-    //     nums[i] =1;
-    //     i++;
-    // }
-    // while(twos--){
-    //     nums[i] =2;
-    //     i++;
-    // }
-
-    //method 3 --in place,3 pointer approach time = O(n)
+//method 3 --in place,3 pointer approach time = O(n)
+void sortColors(vector<int>& nums) {    
     int l=0,m=0,h=nums.size()-1;
     while(m<=h){
         if(nums[m] == 0){

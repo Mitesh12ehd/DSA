@@ -4,23 +4,38 @@
 #include<limits.h>
 using namespace std;
 
+//naive
 int majorityElement(vector<int>& nums) {
-    unordered_map<int,int> mp;
+    int n = nums.size();
+    
+    for(int i=0; i<n; i++){
+        int count = 0;
+        for(int j=0; j<n; j++){
+            if(nums[i] == nums[j]){
+                count++;
+            }
+        }
+        if(count > (n/2)){
+            return nums[i];
+        }
+    }
+    return -1;
+}
 
+//extra space
+int majorityElement(vector<int>& nums) {
+    int n=nums.size();
+    unordered_map<int,int> mp;
     for(auto it:nums){
         mp[it]++;
     }
-        
-    int ans;
-    int maxFreq = INT_MIN;
+
     for(auto it:mp){
-        if(it.second > maxFreq){
-            ans = it.first;
-            maxFreq = it.second;
+        if(it.second > (n/2)){
+            return it.first;
         } 
     }
-
-    return ans;
+    return -1;
 }
 
 //Moore voting algorothim

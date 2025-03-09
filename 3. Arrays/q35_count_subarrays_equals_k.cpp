@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<unordered_map>
 using namespace std;
 
 //brute force n^2
@@ -20,8 +21,22 @@ using namespace std;
 // }
 
 
+//prefix sum with frequency concept
 int subarraySum(vector<int>& nums, int k) {
-    
+    int n = nums.size();
+    int ans = 0;
+    int prefix = 0;
+    unordered_map<int,int> mp;
+    mp[0] = 1;
+
+    for(int i=0; i<n; i++){
+        prefix = prefix + nums[i];
+        if(mp.find(prefix-k) != mp.end()){
+            ans = ans + mp[prefix-k];
+        }
+        mp[prefix]++;
+    }
+    return ans;
 }
 
 int main(){

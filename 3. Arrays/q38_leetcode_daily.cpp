@@ -3,7 +3,6 @@
 #include<algorithm>
 using namespace std;
 
-
 //leetcode 2491
 //divide the players into equalls skills
 

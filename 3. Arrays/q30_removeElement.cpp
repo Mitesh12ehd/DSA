@@ -2,6 +2,8 @@
 #include<vector>
 using namespace std;
 
+//leetcode 27
+
 int removeElement(vector<int>& nums, int val) {
     int index = 0;
 
