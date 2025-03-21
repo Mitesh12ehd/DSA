@@ -20,6 +20,6 @@ remain 9,
 1. prime factorization based question in basic maths
 2. segmented sieve based problem in basic maths
 3. missing and repeating fourth approach using bitwise xor
-5. 
+5. rotate string in strings topic
 
 

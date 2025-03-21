@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
 
+//Leetcode 205
+//Isomorphic strings
+
 bool isIsomorphic(string s, string t) {
     int hash[256] = {0};
     bool is_T_CharMapped[256] = {0};

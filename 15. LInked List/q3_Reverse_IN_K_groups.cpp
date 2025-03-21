@@ -1,6 +1,11 @@
 #include<iostream>
 using namespace std;
 
+//Leetcode 25
+//Reverse node in k groups
+
+//drurun on both approach to understand
+
 class Node{
     public:
     int data;
@@ -20,13 +25,6 @@ class Node{
         cout << "Node with value = "<< value << " is deleted" <<endl;
     }
 };
-void printLinkedList(Node*& head){
-    Node* temp = head;
-    while(temp != NULL){
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-}
 int findlength_Of_LinkedList(Node*& head){
     int len = 0;
     Node* temp = head;
@@ -37,8 +35,68 @@ int findlength_Of_LinkedList(Node*& head){
     return len;
 }
 
+//itertive approach
+Node* reverseLL(Node*& head){
+    Node* prevNode = NULL;
+    Node* currNode = head;
+    while(currNode != NULL){
+        Node* nextNode = currNode->next;
+        currNode->next = prevNode;
+        prevNode = currNode;//increament
+        currNode = nextNode;//increament
+    }
+    return prevNode;
+}
+Node* getKthNode(Node* temp,int k){
+    //decreament k by 1 because we are at first nodes
+    k--;
+    while(temp != NULL && k--){
+        temp = temp->next;
+    }
+    return temp;
+}
+Node* reverseKGroup(Node*& head,int k){
+    Node* temp = head;
+    Node* prevLast = NULL; // store last node of the previous group
+
+    while(temp){
+        Node* kthNode = getKthNode(temp,k);
+
+        //if kth node is null we don't need to revrese that part
+        if(kthNode == NULL){
+            if(prevLast){
+                prevLast->next = temp;
+            }
+            break;
+        }
+
+        //store the next node after kth node
+        Node* nextNode = kthNode->next;
+
+        //disconnect
+        kthNode->next = NULL;
+
+        //reverse k nodes
+        reverseLL(temp);
+
+        //head of answer bill become last node of first k nodes
+        if(temp == head){
+            head = kthNode;
+        }
+        else{
+            //now this is second group so that we need to link to previous group
+            prevLast->next = kthNode;
+        }
+
+        prevLast = temp;
+        temp = nextNode;
+    }
+    return head;
+}
+
+//recursive approach
 // time = O(n) Space = O(n/k)
-Node* reverseLL(Node*& head,int k){
+Node* reverseKGroup(Node*& head,int k){
     if(head == NULL){
         cout << "linked list is empty";
         return head;
@@ -65,31 +123,12 @@ Node* reverseLL(Node*& head,int k){
     //step 2. reverese a remain node by rescursion
     //here we have written head->next beacuse when k node reveresed,
     //head is shifted at the end
-    head->next = reverseLL(nextNode,k);
+    head->next = reverseKGroup(nextNode,k);
 
     //step 3. return prevNode
     return prevNode;
 }
 
 int main(){
-    //create a linked list
-    Node* head = new Node(10);
-    Node* second = new Node(20);
-    Node* third = new Node(30);
-    Node* fourth = new Node(40);
-    Node* fifth = new Node(50);
-    Node* sixth = new Node(60);
-    head->next = second;
-    second->next = third;
-    third->next = fourth;
-    fourth->next = fifth;
-    fifth->next = sixth;
-
-    int k = 3;
-    head = reverseLL(head,k);
-
-    cout<<"printing linked list" << endl;
-    printLinkedList(head);
-
     return 0;
 }

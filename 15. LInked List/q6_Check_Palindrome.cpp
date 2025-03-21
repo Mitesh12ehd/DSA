@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
 
+//Leetcode 234
+//Palindrome linked list
+
 class Node{
     public:
     int data;
@@ -47,6 +50,13 @@ Node* reverseLL(Node*& head){
     return prevNode;
 }
 
+//method 1
+// 1. store all the nodes in stack
+// 2. now take one by one node from stack and compare with linked list 
+//    starting with head 
+// 3. if it match everything linked list is palindrome else not
+
+//method 2
 //Time = O(n/2) = O(n) Space = O(1)
 bool isPalindrome(Node*& head){
     if(head == NULL){

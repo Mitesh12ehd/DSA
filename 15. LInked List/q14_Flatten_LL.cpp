@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
 
+//GFG
+//Flattening linked list
+
 class Node{
     public:
     int data;

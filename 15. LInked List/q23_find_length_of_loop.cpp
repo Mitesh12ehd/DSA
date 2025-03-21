@@ -2,8 +2,8 @@
 #include<unordered_map>
 using namespace std;
 
-//leetcode 141
-//Linked list cycle
+//GFG
+//Find length of loop
 
 class Node{
     public:
@@ -24,22 +24,26 @@ class Node{
     }
 };
 
-//brute force time = O(n) space = O(n)
-bool hasCycle(Node *head) {
-    unordered_map<Node*,bool> visited;
+//brute force
+int countNodesinLoop(Node *head) {
+    unordered_map<Node*,int> mp;
     Node* temp = head;
+    int count = 1;
+
     while(temp != NULL){
-        if(visited[temp] == true){
-            return true;
+        if(mp.find(temp) != mp.end()){
+            return count - mp[temp];
         }
-        visited[temp] = true;
+
+        mp[temp] = count;
+        count++;
         temp = temp->next;
     }
-    return false;
+    return 0;
 }
 
-//optimal approach time = Time = O(n) space = O(1)
-bool hasCycle(Node*& head){
+//optimal approach
+int countNodesinLoop(Node *head) {
     Node* slow = head;
     Node* fast = head;
     while(fast != NULL){
@@ -49,12 +53,22 @@ bool hasCycle(Node*& head){
             slow = slow->next;
         }
         if(slow == fast){
-            return true;
+            break;
         }
     }
-    return false;
-}
 
+    if(fast == NULL){
+        return 0;
+    }
+
+    int count = 1;
+    fast = fast->next;
+    while(fast != slow){
+        count++;
+        fast = fast->next;
+    }
+    return count;
+}
 
 int main(){
     return 0;

@@ -3,8 +3,10 @@
 #include<string>
 using namespace std;
 
-string longestCommonPrefix(vector<string>& strs) {
+//Leetcode 14 
+//Longest common prefix
 
+string longestCommonPrefix(vector<string>& strs) {
     //outer while loop is itarate charater.
     //for loop iterate strs
 
@@ -36,6 +38,7 @@ string longestCommonPrefix(vector<string>& strs) {
     }
     return ans;
 }
+
 int main(){
     vector<string> arr{"flower","flow","flight"};
     cout << "Ans = " << longestCommonPrefix(arr);

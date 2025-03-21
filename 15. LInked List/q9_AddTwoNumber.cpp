@@ -1,6 +1,9 @@
 #include<iostream>
 using namespace std;
 
+//Leetcode 2
+//Add two numbers
+
 class Node{
     public:
     int data;
@@ -19,22 +22,7 @@ class Node{
         cout << "Node with value = "<< value << " is deleted" <<endl;
     }
 };
-void printLinkedList(Node*& head){
-    Node* temp = head;
-    while(temp != NULL){
-        cout << temp->data << " ";
-        temp = temp->next;
-    }
-}
-int findlength_Of_LinkedList(Node*& head){
-    int len = 0;
-    Node* temp = head;
-    while(temp != NULL){
-        temp = temp->next;
-        len++;
-    }
-    return len;
-}
+
 Node* reverseLL(Node*& head){
     Node* prevNode = NULL;
     Node* currNode = head;
@@ -48,7 +36,7 @@ Node* reverseLL(Node*& head){
 }
 
 //time = O(max(m,n) space = O(1)
-Node* solve(Node*& head1,Node*& head2){
+Node* addTwoNumbers(Node*& head1,Node*& head2){
     //1.reverse the both list
     head1 = reverseLL(head1);
     head2 = reverseLL(head2);
@@ -128,17 +116,5 @@ Node* solve(Node*& head1,Node*& head2){
 }
 
 int main(){
-    Node* head1 = new Node(2);
-    Node* second1 = new Node(4);
-    head1->next = second1;
-
-    Node* head2 = new Node(2);
-    Node* second2 = new Node(3);
-    Node* third2 = new Node(4);
-    head2->next = second2;
-    second2->next = third2;
-
-    Node* ansHead = solve(head1,head2);
-    printLinkedList(ansHead);
     return 0;
 }

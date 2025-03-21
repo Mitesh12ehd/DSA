@@ -28,26 +28,7 @@ void printLinkedList(Node*& head){
         temp = temp->next;
     }
 }
-//method 1 leetcode 
-// bool detectLoop(Node*& head){
-//     if(head == NULL){
-//         cout << "LL is empty";
-//         return false;
-//     }
 
-//     map<Node*,bool> visited;
-//     Node* temp = head;
-//     while(temp != NULL){
-//         if(visited[temp] == true){
-//             return true;
-//         }
-//         visited[temp] = true;
-//         temp = temp->next;
-//     }
-//     return false;
-// }
-
-//method 2 Time = O(A+kC)
 bool detectLoop(Node*& head){
     if(head == NULL){
         cout << "LL is empty";

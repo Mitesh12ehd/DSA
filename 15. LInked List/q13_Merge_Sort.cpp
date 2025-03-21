@@ -35,6 +35,13 @@ int findlength_Of_LinkedList(Node*& head){
     }
     return len;
 }
+
+//brute force approach to sort list will be
+//store all the value in array
+//sort array
+//override linked list with array value
+
+//optimal approach
 Node* getMiddle(Node*& head){
     if(head == NULL){
         cout << "linked list empty";
