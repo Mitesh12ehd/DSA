@@ -3,6 +3,9 @@
 #include<unordered_map>
 using namespace std;
 
+// time = O(n!)
+// space = O(4,n)
+
 unordered_map<int,bool> rowCheck;
 unordered_map<int,bool> upperLeftDiagonalCheck;
 unordered_map<int,bool> bottomLeftDiagonalCheck;
