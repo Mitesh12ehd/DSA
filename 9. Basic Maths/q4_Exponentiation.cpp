@@ -6,7 +6,7 @@ using namespace std;
 
 //what if n is nagative
 //ex 5 ^ -2  == 1/25  
-//divide the ans by 1
+//divide 1 by answer	
 
 int fastExpontiation(int x,int n){
     //Time = O(log(n))

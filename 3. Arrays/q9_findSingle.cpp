@@ -3,6 +3,7 @@
 using namespace std;
 
 //leetcode 136
+//this question in explained during bit manipulation chapter
 
 int findUnique(vector<int> arr){
     //xor operator cancel out same element
