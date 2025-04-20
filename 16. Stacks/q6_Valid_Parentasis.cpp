@@ -2,6 +2,9 @@
 #include<stack>
 using namespace std;
 
+//Leetcode 20
+//Valid parenthisis
+
 bool isValid(string s) {
     stack<char> st;
 

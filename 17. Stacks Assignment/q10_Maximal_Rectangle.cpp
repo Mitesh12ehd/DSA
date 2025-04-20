@@ -4,57 +4,45 @@
 #include<limits.h>
 using namespace std;
 
-vector<int> next_Smaller_Element_Index(vector<int> arr){
-    vector<int> ans(arr.size());
-    stack<int> st;
-    st.push(-1);
+//Leetcode 85
+//Maximal rectangle
 
-    for(int i=arr.size()-1; i>=0; i--){
-        int curr = arr[i];
-        //pop element until we got smaller element than curr at st.top()
-        while(st.top() != -1  &&  arr[st.top()] >= curr){
-            st.pop();
-        }
-        // we got smaller element than current in st.top()
-        ans[i] = st.top();
-        st.push(i);
-    }
-    return ans;
-}
-vector<int> prev_Smaller_Element_index(vector<int> arr){
-    vector<int> ans(arr.size());
-    stack<int> st;
-    st.push(-1);
+//see notes
 
-    for(int i=0; i<arr.size(); i++){
-        int curr = arr[i];
-        //pop element until we got smaller element than curr at st.top()
-        while( st.top() != -1  &&  arr[st.top()] >= curr){
-            st.pop();
-        }
-        // we got smaller element than current in st.top()
-        ans[i] = st.top();
-        st.push(i);
-    }
-    return ans;
-}
+// time = O(m*n) + O(n* 2m)
+// space = O(n*m) + O(n)
+
 int largestRectangleArea(vector<int>& heights) {
-    vector<int> prev = prev_Smaller_Element_index(heights);
-    vector<int> next = next_Smaller_Element_Index(heights);
-
+    stack<int> st;
     int maxArea = INT_MIN;
+    int n = heights.size();
 
-    for(int i=0; i<heights.size(); i++){
-        if(next[i] == -1){
-            next[i] = heights.size();
+    for(int i=0; i<n; i++){
+        while(!st.empty() && heights[st.top()] >= heights[i]){
+            int height = heights[st.top()];
+            st.pop();
+
+            int nextSmallerOfStackTop = i;
+            int prevSmallerOfStackTop = (st.empty()) ? -1 : st.top();
+            int width = nextSmallerOfStackTop - prevSmallerOfStackTop - 1;
+
+            maxArea = max(maxArea,height*width);
         }
-
-        int length = heights[i];
-        int width = next[i] - prev[i] - 1;
-        int area = length * width;
-
-        maxArea = max(maxArea,area);
+        st.push(i);
     }
+
+    //apply formula on remaining element on stack
+    while(!st.empty()){
+        int height = heights[st.top()];
+        st.pop();
+
+        int nextSmallerOfStackTop = n;
+        int prevSmallerOfStackTop = (st.empty()) ? -1 : st.top();
+        int width = nextSmallerOfStackTop - prevSmallerOfStackTop - 1;
+
+        maxArea = max(maxArea,height*width);
+    }
+
     return maxArea;
 }
 

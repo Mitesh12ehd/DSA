@@ -3,6 +3,12 @@
 #include<stack>
 using namespace std;
 
+//Leetcode 901
+//Online stock span
+
+//see notes
+//here we use concept of monotonic stack
+
 //method 1
 // class StockSpanner {
 // public:

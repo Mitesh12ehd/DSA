@@ -3,6 +3,7 @@
 #include<stack>
 using namespace std;
 
+
 //method 1
 // int celebrity(vector<vector<int> >& mat, int n) {
 //     int n = mat.size();
@@ -57,6 +58,50 @@ int celebrity(vector<vector<int> >& M, int n) {
     //step 3.single person in stack might be celebrity. verify it
     int mightBeCelebrity = st.top();
     st.pop();
+
+    for(int i=0; i<n; i++){
+        if(M[mightBeCelebrity][i] != 0){
+            return -1;
+        }
+    }
+    for(int j=0; j<n; j++){
+        if(M[j][mightBeCelebrity] != 1   &&   j != mightBeCelebrity){
+            return -1;
+        }
+    }
+    return mightBeCelebrity;
+}
+
+//method 3 
+// two pointers without using extra space
+int celebrity(vector<vector<int> >& M, int n) {
+    int n = M.size();
+
+    int top = 0; 
+    int bottom = n-1;
+
+    while(top < bottom){
+        if(M[top][bottom] == 1){
+            //top can't be celebrity
+            top++;
+        }
+        else if(M[bottom][top]){
+            //bottom can't be celebrity
+            bottom--;
+        }
+        else{
+            //top and bottom can't be celebrity
+            top++;
+            bottom--; 
+        }
+    }
+
+    if(top > bottom){
+        return -1;
+    }
+
+    //not top = bottom, this person might be celebrity check for it
+    int mightBeCelebrity = top;
 
     for(int i=0; i<n; i++){
         if(M[mightBeCelebrity][i] != 0){

@@ -1,5 +1,11 @@
+#include<stdio.h>
 #include<vector>
+using namespace std;
 
+//Leetcode 155 
+//Min stack
+
+//space = O(2n)
 class MinStack {
 public:
     vector< pair<int,int> > st;
@@ -35,3 +41,5 @@ public:
         return st.back().second;
     }
 };
+
+//there is one more non-intutive approch that use mathematical formula
