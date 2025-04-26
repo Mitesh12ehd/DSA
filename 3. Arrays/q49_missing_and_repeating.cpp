@@ -75,7 +75,8 @@ vector<int> findTwoElement(vector<int>& arr) {
     return {x,y};
 }
 
-//fourth approach will be using bitwise xor
+//fourth approach will be using bitwise xor 
+//refer bit manipulation to explore
 
 int main(){
     return 0;
