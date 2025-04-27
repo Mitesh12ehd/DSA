@@ -5,6 +5,8 @@ using namespace std;
 //Leetcode 78
 //Subsets
 
+//see notes
+
 //this can be solved using recursion and we have done it in recursion
 //explore that solution also
 

@@ -2,6 +2,7 @@
 using namespace std;
 
 //Given N,find xor from 1 to N
+//see notes
 
 //brute force can be using loop
 

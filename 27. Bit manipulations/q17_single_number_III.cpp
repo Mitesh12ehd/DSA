@@ -6,29 +6,9 @@ using namespace std;
 //Leetcode 260
 //Single number III
 
-//brute force will be using hashmaps
-vector<int> singleNumber(vector<int>& nums) {
-    sort(nums.begin(),nums.end());
+//see notes
 
-    int currNum = nums[0];
-    int count = 1;
-    vector<int> ans;
-    for(int i=1; i<nums.size(); i++){
-        if(count == 2){
-            currNum = nums[i];
-            count = 1;
-        }
-        else if(nums[i] != currNum){
-            ans.push_back(currNum);
-            currNum = nums[i];
-            count = 1;
-        }
-        else{
-            count++;
-        }
-    }
-    return ans;
-}
+//brute force will be using hashmaps
 
 //better approach time = O(nlogn) space = O(1)
 vector<int> singleNumber(vector<int>& nums) {
