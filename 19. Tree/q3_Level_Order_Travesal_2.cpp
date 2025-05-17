@@ -60,6 +60,40 @@ void levelOrderTravesal(Node* root){
     }
 }
 
+//better level order travesal
+vector<vector<int>> levelOrder(Node* root) {
+    vector<vector<int>> ans;
+    if(root == NULL){
+        return ans;
+    }
+
+    queue<Node*> q;
+    q.push(root);
+    
+    while(!q.empty()){
+        //get size of current level
+        int size = q.size();
+
+        //create ans of one level
+        vector<int> v;
+        for(int i=0; i<size; i++){
+            Node* front = q.front();
+            q.pop();
+            v.push_back(front->data);
+            if(front->left){
+                q.push(front->left);
+            }
+            if(front->right){
+                q.push(front->right);
+            }
+        }
+
+        //store ans of one level
+        ans.push_back(v);
+    }
+    return ans;
+}
+
 int main(){
     Node* root = NULL;
     root = buildTree(root);

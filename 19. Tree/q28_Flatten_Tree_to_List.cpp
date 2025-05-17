@@ -39,6 +39,33 @@ class Node{
 //     }
 // }
 
+//method 2 using recursive approach
+//1. convert left subtree using recurion
+//2. store root->right pointer in temp
+//3. root->right = leftSubtreeAns
+//4. go to right in depth and attach temp node that we have stored
+Node* helper(Node* root){
+    if(!root){
+        return NULL;
+    }
+
+    Node* rightPart = root->right;
+    root->right = helper(root->left);
+
+    Node* temp = root;
+    while(temp->right != NULL){
+        temp = temp->right;
+    }
+        
+    temp->right = helper(rightPart);
+    root->left = NULL;
+    return root;
+}
+void flatten(Node* root) {
+    root = helper(root);
+}
+
+
 void flatten(Node* root) {
     Node* curr = root;
 
@@ -58,27 +85,7 @@ void flatten(Node* root) {
     }
 }
 
-//brute force hand made 
-// Node* helper(Node* root){
-//     if(!root){
-//         return NULL;
-//     }
 
-//     Node* rightPart = root->right;
-//     root->right = helper(root->left);
-
-//     Node* temp = root;
-//     while(temp->right != NULL){
-//         temp = temp->right;
-//     }
-        
-//     temp->right = helper(rightPart);
-//     root->left = NULL;
-//     return root;
-// }
-// void flatten(Node* root) {
-//     root = helper(root);
-// }
 int main(){
     return 0;
 }

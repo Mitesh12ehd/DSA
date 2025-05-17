@@ -3,6 +3,9 @@
 #include<queue>
 using namespace std;
 
+//This problem is same concept as 45.all node at distance k
+//first solve that problem than solve this 
+
 class Node{
     public:
 
