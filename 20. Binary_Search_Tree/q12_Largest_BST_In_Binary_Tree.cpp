@@ -3,6 +3,9 @@
 #include<queue>
 using namespace std;
 
+//GFG
+//Largest BST
+
 class Node{
     public:
 
@@ -17,6 +20,10 @@ class Node{
     }
 };
 
+// brute force will be check for each subtree is bst or not
+// time = O(n^2)
+
+// optimal approachs
 class Nodedata{
     public:
     int size;
@@ -36,38 +43,6 @@ class Nodedata{
 
     }
 };
-
-void levelOrderTraversal(Node* root ) {
-	queue<Node*> q;
-	//initially
-	q.push(root);
-	q.push(NULL);
-
-	while(!q.empty()) {
-		//A
-		Node* temp = q.front();
-		//B
-		q.pop();
-		
-		if(temp == NULL) {
-			cout << endl;
-			if(!q.empty()) {
-				q.push(NULL);
-			}	
-		}
-		else {
-			//C
-			cout << temp->data << " ";
-			//D
-			if(temp -> left) {
-				q.push(temp ->left);
-			}
-			if(temp ->right) {
-				q.push(temp->right);
-			}
-		}
-	}
-}
 
 Nodedata largestBst(Node *root,int& ans){
     //base case
@@ -104,25 +79,5 @@ Nodedata largestBst(Node *root,int& ans){
 
 
 int main(){
-
-    Node* root = new Node(1);
-    Node* first = new Node(4);
-    Node* second = new Node(4);
-    Node* third = new Node(6);
-    Node* fourth = new Node(8);
-
-    root->left = first;
-    root->right = second;
-    first->left = third;
-    first->right = fourth;
-
-    cout << "printing tree" << endl;
-    levelOrderTraversal(root);
-
-    //driver code for question
-    int ans = 0;
-    largestBst(root,ans);
-    cout << ans;
-
     return 0;
 }

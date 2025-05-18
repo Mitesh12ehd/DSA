@@ -4,6 +4,19 @@
 #include<limits.h>
 using namespace std;
 
+//Leetcode 1108
+//Construct binary search tree from preorder travesal
+
+//brute forces
+//we call insert into bst function for each element in array
+
+//better approach
+//generate inorder by sorting preorder travesal
+//now generate tree from inorder and preorder using concept 
+//that we have seen in binary tree
+
+//optimal approach
+
 class Node{
     public:
 
