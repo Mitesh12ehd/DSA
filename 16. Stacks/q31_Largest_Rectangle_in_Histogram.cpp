@@ -111,7 +111,7 @@ int largestRectangleArea(vector<int>& heights) {
 
     for(int i=0; i<n; i++){
         while(!st.empty() && heights[st.top()] >= heights[i]){
-            int height = st.top();
+            int height = heights[st.top()];
             st.pop();
 
             int nextSmallerOfStackTop = i;
